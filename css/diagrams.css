@@ -1,0 +1,95 @@
+/* SVG Architecture Diagrams Styles */
+
+.diagram-container {
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+  border: 1px solid var(--pv-border);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  margin-top: 10px;
+  overflow-x: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.diagram-svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Architecture Node Styling */
+.arch-node {
+  fill: #ffffff;
+  stroke: #94a3b8;
+  stroke-width: 1.5;
+  rx: 8;
+  ry: 8;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.06));
+  transition: all 0.2s ease;
+}
+
+.arch-node:hover {
+  stroke: #2563eb;
+  stroke-width: 2;
+}
+
+.arch-node-aws {
+  fill: #fffaf0;
+  stroke: var(--aws-orange);
+  stroke-width: 2;
+}
+
+.arch-node-active {
+  fill: #eff6ff;
+  stroke: #3b82f6;
+  stroke-width: 2;
+}
+
+.arch-node-security {
+  fill: #fdf2f8;
+  stroke: #ec4899;
+  stroke-width: 2;
+}
+
+.arch-text-title {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  fill: #0f172a;
+}
+
+.arch-text-sub {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 11px;
+  fill: #64748b;
+}
+
+.arch-flow-line {
+  stroke: #3b82f6;
+  stroke-width: 2;
+  stroke-dasharray: 6 3;
+  animation: flowDash 1.2s linear infinite;
+  fill: none;
+}
+
+.arch-flow-line-security {
+  stroke: #e11d48;
+  stroke-width: 2;
+  stroke-dasharray: 5 3;
+  animation: flowDash 1s linear infinite;
+  fill: none;
+}
+
+@keyframes flowDash {
+  to {
+    stroke-dashoffset: -18;
+  }
+}
+
+.arch-flow-label {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 10.5px;
+  fill: #475569;
+  font-weight: 600;
+}
