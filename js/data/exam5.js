@@ -885,15 +885,15 @@ window.EXAM_DATA_5 = {
       "questionNumber": 27,
       "domain": 2,
       "domainTitle": "Domain 2: Fundamentals of Generative AI",
-      "subtopic": "AI tasks and modalities",
+      "subtopic": "Context engineering: choosing what the model sees",
       "type": "matching",
-      "scenario": "A product team is choosing capabilities for an application.",
-      "question": "Match each requirement to the appropriate capability.",
+      "scenario": "A support agent assembles information before answering a user.",
+      "question": "Match each requirement to the appropriate concept.",
       "options": [
-        "Multimodal understanding",
-        "Image generation",
-        "Text generation",
-        "Embedding-based retrieval"
+        "Retrieved evidence",
+        "Tool result",
+        "Instructions",
+        "Conversation memory"
       ],
       "correctAnswers": [
         2,
@@ -901,24 +901,24 @@ window.EXAM_DATA_5 = {
         0,
         1
       ],
-      "explanation": "Choose the capability based on the input and required output. Generation creates content, embeddings support similarity search, and multimodal understanding combines supported input types.",
+      "explanation": "Context engineering combines instructions, relevant memory, retrieved evidence and tool results. Each has a different role, and untrusted content must not be promoted into authoritative instructions.",
       "distractors": [
-        "Uses multiple supported input modalities.",
-        "Produces an image.",
-        "Produces text.",
-        "Retrieves by semantic similarity."
+        "This concept addresses: supply passages from an approved policy document.",
+        "This concept addresses: supply the latest status from an order api.",
+        "This concept addresses: define the assistant’s task and boundaries.",
+        "This concept addresses: preserve useful details from earlier interactions."
       ],
-      "examTrap": "Identify inputs and outputs before picking a model.",
+      "examTrap": "More context is not automatically better. Relevance, permissions, freshness and token budget matter.",
       "diagramKey": "bedrock_rag",
       "consoleViewKey": "prebuilt_ai_console",
       "prompts": [
-        "Create new marketing copy",
-        "Find semantically similar passages",
-        "Answer questions using both a photo and text",
-        "Create an image from a description"
+        "Define the assistant’s task and boundaries",
+        "Preserve useful details from earlier interactions",
+        "Supply passages from an approved policy document",
+        "Supply the latest status from an order API"
       ],
-      "lessonId": "multimodal",
-      "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html"
+      "lessonId": "context",
+      "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-engineering-guidelines.html"
     },
     {
       "id": "e5_q28",
@@ -2122,7 +2122,7 @@ window.EXAM_DATA_5 = {
       "subtopic": "Multi-Response (HIPAA & Healthcare AI Compliance)",
       "type": "multiple",
       "scenario": "A hospital network is deploying an AI document analysis system using Amazon Bedrock and Amazon S3 to process Protected Health Information (PHI).",
-      "question": "Which TWO requirements are mandatory to comply with HIPAA regulations on AWS? (Select TWO)",
+      "question": "Which TWO measures help support the workload’s security and compliance safeguards? (Select TWO)",
       "options": [
         "Execute a Business Associate Addendum (BAA) with AWS covering HIPAA-eligible services.",
         "Encrypt all Protected Health Information (PHI) at rest using AWS KMS Customer Managed Keys.",

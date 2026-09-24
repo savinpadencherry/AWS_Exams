@@ -466,40 +466,40 @@ window.EXAM_DATA_2 = {
       "questionNumber": 14,
       "domain": 2,
       "domainTitle": "Domain 2: Fundamentals of Generative AI",
-      "subtopic": "AI tasks and modalities",
+      "subtopic": "The controls for a generated answer",
       "type": "matching",
-      "scenario": "A product team is choosing capabilities for an application.",
-      "question": "Match each requirement to the appropriate capability.",
+      "scenario": "A developer is adjusting a supported text-generation model.",
+      "question": "Match each requirement to the appropriate concept.",
       "options": [
-        "Multimodal understanding",
-        "Image generation",
-        "Text generation",
-        "Embedding-based retrieval"
+        "Maximum output tokens",
+        "Top-p",
+        "Temperature",
+        "Top-k"
       ],
       "correctAnswers": [
         2,
-        3,
         0,
+        3,
         1
       ],
-      "explanation": "Choose the capability based on the input and required output. Generation creates content, embeddings support similarity search, and multimodal understanding combines supported input types.",
+      "explanation": "Sampling controls affect different parts of generation. Temperature adjusts randomness, maximum tokens limits length, top-k limits candidate count and top-p limits cumulative probability. Supported settings depend on the model.",
       "distractors": [
-        "Uses multiple supported input modalities.",
-        "Produces an image.",
-        "Produces text.",
-        "Retrieves by semantic similarity."
+        "This concept addresses: cap generated answer length.",
+        "This concept addresses: limit candidates by cumulative probability.",
+        "This concept addresses: reduce sampling randomness.",
+        "This concept addresses: limit candidates by count."
       ],
-      "examTrap": "Identify inputs and outputs before picking a model.",
+      "examTrap": "Parameter names, ranges and combinations depend on the model. Do not assume every Bedrock model supports every setting.",
       "diagramKey": "bedrock_rag",
       "consoleViewKey": "bedrock_kb_console",
       "prompts": [
-        "Create new marketing copy",
-        "Find semantically similar passages",
-        "Answer questions using both a photo and text",
-        "Create an image from a description"
+        "Reduce sampling randomness",
+        "Cap generated answer length",
+        "Limit candidates by count",
+        "Limit candidates by cumulative probability"
       ],
-      "lessonId": "multimodal",
-      "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html"
+      "lessonId": "sampling",
+      "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html"
     },
     {
       "id": "e2_q15",
@@ -960,20 +960,20 @@ window.EXAM_DATA_2 = {
       "scenario": "A financial services company wants to automate calculating customer monthly loan interest payments. The IT director proposes using an LLM on Amazon Bedrock to calculate the interest from principal and APR.",
       "question": "Why is using a Generative AI foundation model for this task an anti-pattern?",
       "options": [
-        "Foundation models are probabilistic and prone to arithmetic hallucinations; deterministic mathematical formulas are best implemented with standard code (e.g. AWS Lambda).",
-        "Bedrock does not support numbers.",
-        "LLMs can only process text in English.",
-        "Foundation models require GPU hardware that is illegal for finance."
+        "The required calculation follows exact rules, so validated deterministic code is a better fit than probabilistic text generation.",
+        "A larger context window is necessary before any interest calculation can be performed.",
+        "Fine-tuning on worked examples guarantees exact arithmetic for all future inputs.",
+        "Retrieval from a policy document removes the need to validate the calculation."
       ],
       "correctAnswers": [
         0
       ],
       "explanation": "When a task is fully specified by exact rules, tested deterministic code is generally a better fit than asking a generative model to calculate the result. Code still needs validation; deterministic does not mean bug-free.",
       "distractors": [
-        "Rule-based calculations require deterministic code, not probabilistic LLM predictions.",
-        "Bedrock models process numeric tokens, but lack guaranteed arithmetic precision.",
-        "Modern FMs support dozens of languages.",
-        "GPUs are standard across the financial industry."
+        "Use tested code for a calculation whose rules are fully specified.",
+        "Context capacity is not the core issue for a short deterministic calculation.",
+        "Fine-tuning does not guarantee exact arithmetic on all new inputs.",
+        "Retrieved policy can explain rules, but the calculation still needs correct implementation and validation."
       ],
       "examTrap": "Deterministic business rules and exact math should use traditional code/Lambda, NOT Generative AI!",
       "diagramKey": "inference_types",

@@ -2110,7 +2110,7 @@ window.EXAM_DATA_1 = {
       "subtopic": "Multi-Response Question (Security & Governance)",
       "type": "multiple",
       "scenario": "A global healthcare enterprise is architecting an AI document summarization system on Amazon Bedrock. The system must adhere to HIPAA regulations and protect patient healthcare records.",
-      "question": "Which TWO measures should the solutions architect combine to achieve security and compliance? (Select TWO)",
+      "question": "Which TWO measures help support the workload’s security and compliance safeguards? (Select TWO)",
       "options": [
         "Ensure an executed Business Associate Addendum (BAA) is in place with AWS for HIPAA-eligible Bedrock services.",
         "Route all traffic through public internet gateways to reduce hops.",

@@ -885,40 +885,40 @@ window.EXAM_DATA_3 = {
       "questionNumber": 27,
       "domain": 2,
       "domainTitle": "Domain 2: Fundamentals of Generative AI",
-      "subtopic": "AI tasks and modalities",
+      "subtopic": "RAG and fine-tuning solve different problems",
       "type": "matching",
-      "scenario": "A product team is choosing capabilities for an application.",
-      "question": "Match each requirement to the appropriate capability.",
+      "scenario": "A team is comparing ways to adapt a foundation-model application.",
+      "question": "Match each requirement to the appropriate concept.",
       "options": [
-        "Multimodal understanding",
-        "Image generation",
-        "Text generation",
-        "Embedding-based retrieval"
+        "Continued pretraining",
+        "Retrieval-augmented generation",
+        "Few-shot prompting",
+        "Supervised fine-tuning"
       ],
       "correctAnswers": [
+        1,
         2,
         3,
-        0,
-        1
+        0
       ],
-      "explanation": "Choose the capability based on the input and required output. Generation creates content, embeddings support similarity search, and multimodal understanding combines supported input types.",
+      "explanation": "RAG supplies retrieved information during inference. Few-shot prompting provides examples without updating weights. Fine-tuning adapts weights using task examples; continued pretraining learns from additional raw domain content.",
       "distractors": [
-        "Uses multiple supported input modalities.",
-        "Produces an image.",
-        "Produces text.",
-        "Retrieves by semantic similarity."
+        "This concept addresses: continue training on raw domain text.",
+        "This concept addresses: supply current reference documents at request time.",
+        "This concept addresses: show example input/output pairs in a prompt.",
+        "This concept addresses: update weights with labeled task examples."
       ],
-      "examTrap": "Identify inputs and outputs before picking a model.",
+      "examTrap": "PEFT such as LoRA trains relatively few added or selected parameters. It reduces resource needs but does not guarantee prevention of forgetting.",
       "diagramKey": "bedrock_rag",
       "consoleViewKey": "prebuilt_ai_console",
       "prompts": [
-        "Create new marketing copy",
-        "Find semantically similar passages",
-        "Answer questions using both a photo and text",
-        "Create an image from a description"
+        "Supply current reference documents at request time",
+        "Show example input/output pairs in a prompt",
+        "Update weights with labeled task examples",
+        "Continue training on raw domain text"
       ],
-      "lessonId": "multimodal",
-      "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html"
+      "lessonId": "tuningfm",
+      "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html"
     },
     {
       "id": "e3_q28",

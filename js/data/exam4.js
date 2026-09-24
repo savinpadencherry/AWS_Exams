@@ -917,40 +917,40 @@ window.EXAM_DATA_4 = {
       "questionNumber": 28,
       "domain": 2,
       "domainTitle": "Domain 2: Fundamentals of Generative AI",
-      "subtopic": "AI tasks and modalities",
+      "subtopic": "Generating versus predicting",
       "type": "matching",
-      "scenario": "A product team is choosing capabilities for an application.",
-      "question": "Match each requirement to the appropriate capability.",
+      "scenario": "An AI product combines several model capabilities.",
+      "question": "Match each requirement to the appropriate concept.",
       "options": [
-        "Multimodal understanding",
-        "Image generation",
+        "Diffusion",
+        "Classification",
         "Text generation",
-        "Embedding-based retrieval"
+        "Embedding-based search"
       ],
       "correctAnswers": [
+        1,
         2,
         3,
-        0,
-        1
+        0
       ],
-      "explanation": "Choose the capability based on the input and required output. Generation creates content, embeddings support similarity search, and multimodal understanding combines supported input types.",
+      "explanation": "Classification predicts a category, generation creates content, embeddings support similarity search, and diffusion creates outputs through iterative denoising.",
       "distractors": [
-        "Uses multiple supported input modalities.",
-        "Produces an image.",
-        "Produces text.",
-        "Retrieves by semantic similarity."
+        "This concept addresses: generate an image by iterative denoising.",
+        "This concept addresses: assign a review to positive or negative.",
+        "This concept addresses: create a new product description.",
+        "This concept addresses: retrieve passages similar in meaning to a query."
       ],
-      "examTrap": "Identify inputs and outputs before picking a model.",
+      "examTrap": "Foundation models are broadly pretrained and can be adapted to many tasks. Their output still needs evaluation.",
       "diagramKey": "bedrock_rag",
       "consoleViewKey": "bedrock_kb_console",
       "prompts": [
-        "Create new marketing copy",
-        "Find semantically similar passages",
-        "Answer questions using both a photo and text",
-        "Create an image from a description"
+        "Assign a review to positive or negative",
+        "Create a new product description",
+        "Retrieve passages similar in meaning to a query",
+        "Generate an image by iterative denoising"
       ],
-      "lessonId": "multimodal",
-      "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html"
+      "lessonId": "generation",
+      "source": "https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01/ai-practitioner-01-domain2.html"
     },
     {
       "id": "e4_q29",

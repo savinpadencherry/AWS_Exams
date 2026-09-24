@@ -61,14 +61,14 @@ window.LESSONS = {
   "metrics": {
     "title": "Precision, recall and missed cases",
     "plain": "Precision asks: of the cases we flagged, how many were truly positive? Recall asks: of all real positive cases, how many did we find?",
-    "example": "There are 10 actual frauds. We flag 10 payments: 8 are fraud and 2 are normal. Precision = 8/10. We missed 2 frauds, so recall = 8/10 too.",
+    "example": "There are 10 actual frauds. We flag 12 payments: 8 are fraud and 4 are normal. Precision = 8/12, about 67%. We missed 2 frauds, so recall = 8/10, or 80%.",
     "nodes": [
       {
         "title": "True positive: 8",
         "detail": "Fraud correctly caught"
       },
       {
-        "title": "False positive: 2",
+        "title": "False positive: 4",
         "detail": "Normal payment wrongly flagged"
       },
       {
@@ -76,7 +76,7 @@ window.LESSONS = {
         "detail": "Fraud missed by the model"
       },
       {
-        "title": "True negative: 88",
+        "title": "True negative: 86",
         "detail": "Normal payment left alone"
       }
     ],
