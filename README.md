@@ -39,6 +39,29 @@ node --test tests/exam.test.cjs
 
 Open `http://localhost:8000`. GitHub Pages publishes the repository root from `main` using the existing Pages configuration.
 
+## Hands-on AWS business labs
+
+The optional [lab program](labs/README.md) adds business scenarios and a local AWS API sandbox to the quiz app. Start with a gadget shop's support-ticket system, then learn evaluation, prompting, RAG, responsible AI, and security through decisions and experiments. LocalStack emulates selected AWS services; it is not the full AWS Console or a substitute for real model evaluation.
+
+On **Windows 11 x64**, clone this repository, open PowerShell in its folder, and run:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\labs\setup-windows.ps1
+```
+
+This process-only execution policy option does not change your saved PowerShell policy. The installer sets up WSL2 and Ubuntu 24.04, Docker Engine, AWS CLI, and the pinned LocalStack image. On a fresh Windows machine, accept the administrator prompt if requested, restart when instructed, then rerun the same command. Enter your own LocalStack token at the hidden local prompt; no token is included in this repository. Obtain an account/license through [LocalStack](https://app.localstack.cloud/) or its [GitHub Student offer](https://www.localstack.cloud/localstack-for-students).
+
+Setup verifies the license, CPU/RAM limits, and S3/DynamoDB round trips, then **stops the lab**. It can be rerun and reuses installed tools and the saved token. The quiz app remains independently available without Docker.
+
+```powershell
+.\labs\lab.ps1 start    # Start a study session
+.\labs\lab.ps1 smoke    # Verify local storage
+.\labs\lab.ps1 status   # Inspect resource usage
+.\labs\lab.ps1 stop     # Remove disposable resources and stop the VM
+```
+
+Budget: LocalStack **1 CPU / 2 GiB RAM**; WSL **2 virtual CPUs / 4 GiB RAM / 1 GiB swap**; new Ubuntu disk maximum **28 GiB**. Only S3/DynamoDB run initially. No model downloads or automatic startup. WSL settings are global: the installer backs up existing `.wslconfig`, preserves unrelated settings, and asks you to close other running WSL distributions before applying limits. Windows files and swap are additional to the disk ceiling. See [setup details](labs/INSTALL.md) and [your first lesson](labs/START-HERE.md).
+
 ## Modules
 
 - `js/data/exam*.js`: complete mixed exam banks, answer reasons and explicit lesson mappings.

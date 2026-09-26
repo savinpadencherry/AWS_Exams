@@ -1,0 +1,25 @@
+name: aws-study
+services:
+  localstack:
+    # Verified 2026.8.4; pin the exact image to prevent surprise downloads.
+    image: localstack/localstack@sha256:03bde1974f8bb7a7b6d4128228cf9048c7bdb8249deb998d1b80af73926c0017
+    restart: "no"
+    cpus: 1.0
+    mem_limit: 2g
+    memswap_limit: 2g
+    ports:
+      - "127.0.0.1:4566:4566"
+    environment:
+      LOCALSTACK_AUTH_TOKEN: ${LOCALSTACK_AUTH_TOKEN:?Load token using lab.sh}
+      SERVICES: s3,dynamodb
+      EAGER_SERVICE_LOADING: "0"
+      DEBUG: "0"
+      PERSISTENCE: "0"
+    logging:
+      driver: json-file
+      options:
+        max-size: "5m"
+        max-file: "2"
+# No Docker socket or Bedrock runtime in this baseline.
+# Lambda needs a reviewed extension with socket access and runtime limits.
+# State is disposable; keep reproducible commands and synthetic fixtures.
