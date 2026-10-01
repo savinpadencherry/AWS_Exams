@@ -1,81 +1,50 @@
-# AWS AI Practitioner: Practice & Learn
+# AWS Certified Generative AI Developer – Professional (AIP-C01): Study & Practice
 
-[Open the exam app](https://savinpadencherry.github.io/AWS_Exams/)
+A static, no-build study app that **teaches** the AIP-C01 blueprint and then tests it under exam conditions. It replaces the earlier AI Practitioner (AIF-C01) practice app.
 
-Five mixed, 65-question AIF-C01 practice exams. Every exam covers all five domains with 13 / 16 / 18 / 9 / 9 questions, approximating the published 20% / 24% / 28% / 14% / 14% blueprint. Timed attempts shuffle question order and answer positions. Learning attempts preserve question order and shuffle answer positions.
-
-## Learning workflow
-
-1. Choose **Learn at my pace** and commit a complete answer with **Check answer & learn**.
-2. Read the plain-language concept, concrete example and question-specific explanation.
-3. Inspect the relevant original concept/architecture diagram. Mobile versions remain readable; enlarge for more detail.
-4. Inspect each alternative, then answer the recall question before revealing its answer.
-5. Use the AWS reference and console navigation guide where applicable.
-6. Retry missed questions from the dashboard. A correct fresh retry clears a question from the revision queue.
-
-58 original topic lessons and 116 desktop/mobile SVG assets support the 325 items. Visuals are teaching diagrams, **not screenshots of the AWS console**. The previous generic console mockups and unrelated diagrams are no longer part of the app.
-
-## Exam behavior
-
-- 90-minute wall-clock deadline, including time away from the tab; refresh cannot reset it.
-- Untimed learning, explicit answer check, and locked first-check results.
-- Single choice, multiple response, ordering and matching in each exam.
-- Exact-match scoring without partial credit; incomplete questions count as incorrect.
-- Flagging, question navigator and final submission review.
-- Answers hidden during a timed attempt, with explanations available afterward.
-- Immutable submitted results, per-domain raw accuracy, saved attempts and mistake retries.
-- Local browser storage only; no account, API keys, backend or paid runtime services.
-
-AWS uses 50 scored questions plus 15 unidentified unscored questions, and a scaled 100–1000 score with a 700 passing mark. AWS does **not** publish a raw-percentage conversion. This app scores **all 65 practice questions** equally and reports raw accuracy. Its 80% study target is arbitrary guidance, not an AWS passing score. The questions are independent practice content, not real exam items or predictions. Difficulty has not been psychometrically calibrated. Some retained technical questions extend beyond foundational exam scope.
-
-## Run and test
-
-No installation or build step is required.
+Open `index.html` through any static server (or GitHub Pages). No account, backend, API key or paid service is needed; progress is stored in your browser only.
 
 ```sh
-python3 -m http.server 8000
-node --test tests/exam.test.cjs
+python3 -m http.server 8000      # then open http://localhost:8000
+node --test tests/exam.test.cjs  # blueprint, bank and engine checks
 ```
 
-Open `http://localhost:8000`. GitHub Pages publishes the repository root from `main` using the existing Pages configuration.
+## What is in it
 
-## Hands-on AWS business labs
+| Area | What you get |
+| --- | --- |
+| **Study guide** | One module for each of the 20 tasks in the official guide (Tasks 1.1–5.2) plus an exam-strategy page. Each has the mental model, concepts with *exam traps*, comparison tables, a flow diagram, a "spot it in the exam" list and AWS references. |
+| **Practice bank** | 306 original scenario questions (single choice and multiple response, as in the real exam), each tagged with domain, task and skill, with an explanation and a reason for every option. |
+| **Timed mocks** | Four non-overlapping **75-question, 180-minute** mocks assembled in the blueprint weighting (23 / 20 / 15 / 9 / 8 questions across the five domains, about 31 / 26 / 20 / 12 / 11 %). Shuffled, answers hidden, flagging, navigator, persisted deadline and auto-submit. |
+| **Drills** | 12-question drills per task, 15-question drills per domain, an adaptive 25-question mix that favours unseen and missed items, and a mistake-retry queue. |
+| **Dashboard** | Readiness by domain (accuracy and coverage), weakest tasks, attempt history with raw and blueprint-weighted results, exam-date countdown. |
+| **Rapid review** | Every comparison table, pattern and exam trap on one printable page. |
+| **Services glossary** | All services the guide lists as in scope, with their role on this exam and common mix-ups, plus the out-of-scope list. |
+| **7-day plan** | A week of study and practice steps to exam day with checkboxes. |
 
-The optional [lab program](labs/README.md) adds business scenarios and a local AWS API sandbox to the quiz app. Start with a gadget shop's support-ticket system, then learn evaluation, prompting, RAG, responsible AI, and security through decisions and experiments. LocalStack emulates selected AWS services; it is not the full AWS Console or a substitute for real model evaluation.
+Keyboard shortcuts in a question: `A`–`F` select, `N` / `P` next / previous, `F` flag.
 
-On **Windows 11 x64**, clone this repository, open PowerShell in its folder, and run:
+## Exam facts used
 
-```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File .\labs\setup-windows.ps1
+From the official exam guide (AIP-C01, 2026): domains and weights **31 / 26 / 20 / 12 / 11 %**, 65 scored plus 10 unscored questions, multiple choice and multiple response only, scaled score 100–1,000 with **750 to pass**, compensatory scoring, no penalty for guessing. The **75 questions in 180 minutes** logistics come from published exam summaries (the guide itself does not state the duration); confirm the time limit on AWS or Pearson VUE when you book.
+
+AWS does not publish a raw-percentage-to-scaled-score conversion. This app reports raw accuracy and a blueprint-weighted percentage as study heuristics only. A steady 80%+ on unseen timed mocks is a sensible goal, not a guarantee.
+
+## Layout
+
+```
+index.html              entry point
+css/app.css             responsive layout, light/dark, print styles
+js/blueprint.js         domains, tasks, skills (from the exam guide)
+js/study/*.js           study modules
+js/data/d*.js           question bank, by domain
+js/services.js, plan.js glossary and 7-day plan
+js/exam-engine.js       sessions, scoring, adaptive selection, persistence
+js/app.js               router and UI
+tests/exam.test.cjs     node:test checks for blueprint, bank, mocks and engine
+labs/                   optional LocalStack labs from the earlier practitioner track
 ```
 
-This process-only execution policy option does not change your saved PowerShell policy. The installer sets up WSL2 and Ubuntu 24.04, Docker Engine, AWS CLI, and the pinned LocalStack image. On a fresh Windows machine, accept the administrator prompt if requested, restart when instructed, then rerun the same command. Enter your own LocalStack token at the hidden local prompt; no token is included in this repository. Obtain an account/license through [LocalStack](https://app.localstack.cloud/) or its [GitHub Student offer](https://www.localstack.cloud/localstack-for-students).
+## Sources, scope and limits
 
-Setup verifies the license, CPU/RAM limits, and S3/DynamoDB round trips, then **stops the lab**. It can be rerun and reuses installed tools and the saved token. The quiz app remains independently available without Docker.
-
-```powershell
-.\labs\lab.ps1 start    # Start a study session
-.\labs\lab.ps1 smoke    # Verify local storage
-.\labs\lab.ps1 status   # Inspect resource usage
-.\labs\lab.ps1 stop     # Remove disposable resources and stop the VM
-```
-
-Budget: LocalStack **1 CPU / 2 GiB RAM**; WSL **2 virtual CPUs / 4 GiB RAM / 1 GiB swap**; new Ubuntu disk maximum **28 GiB**. Only S3/DynamoDB run initially. No model downloads or automatic startup. WSL settings are global: the installer backs up existing `.wslconfig`, preserves unrelated settings, and asks you to close other running WSL distributions before applying limits. Windows files and swap are additional to the disk ceiling. See [setup details](labs/INSTALL.md) and [your first lesson](labs/START-HERE.md).
-
-## Modules
-
-- `js/data/exam*.js`: complete mixed exam banks, answer reasons and explicit lesson mappings.
-- `js/lessons.js`: beginner explanations, examples, recall checks and reference links.
-- `assets/lessons/`: original SVG teaching diagrams, with mobile layouts.
-- `js/exam-engine.js`: session persistence, answer checking, timer deadline, scoring and revision queue.
-- `js/app.js`: accessible browser UI and event handling.
-- `css/app.css`: responsive layout and lesson presentation.
-- `tests/exam.test.cjs`: bank validation and engine regression tests, using Node's built-in test runner.
-
-Progress from the older app is not migrated because its score formula and answer-reveal behavior made results incomparable. The old storage key is left untouched. Clearing browser storage removes local progress; progress does not sync between devices.
-
-## Sources and review
-
-Reviewed 24 September 2026 against the [current AWS AIF-C01 guide](https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01/ai-practitioner-01.html), its five domain pages and relevant AWS service documentation. Each lesson provides its own source. See [REVIEW.md](REVIEW.md) for the audit findings and limitations.
-
-This independent practice app is not affiliated with AWS or Pearson VUE. No proprietary exam interface, actual exam questions or leaked question banks are used.
+See [REVIEW.md](REVIEW.md). This is independent practice material, not affiliated with AWS or Pearson VUE, and contains no real or leaked exam questions. AWS services change quickly: check the linked AWS documentation for current behaviour before relying on a detail.

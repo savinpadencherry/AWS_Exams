@@ -1,45 +1,33 @@
-# Review: 24 September 2026
+# Review notes: AIP-C01 rebuild (1 October 2026)
 
-## Findings addressed
+## What changed
 
-- Each original exam already contained all five domains, but section-oriented titles and domain-grouped presentation obscured that. All exams are now named as mixed practice exams; timed questions are shuffled and topic labels are hidden until review.
-- Removed the unsupported `100 + rawAccuracy * 900` formula and false official/Pearson claims. Raw accuracy is reported with the real scoring distinction explained.
-- Repaired malformed Exam 3 question 12, which had shifted fields and invalid options/answer keys.
-- Multiple-response learning no longer reveals the key after the first click. Complete answers must be explicitly checked.
-- Learning is untimed; submitted and checked answers are immutable. Review cannot inflate the saved score.
-- Replaced decrement-only timing with a persisted deadline and automatic submission, including expiry while away.
-- Replaced generic, often unrelated visual mappings and fabricated console screens with explicit per-question lesson mappings and original responsive teaching diagrams.
-- Corrected responsible AI dimensions, outdated manual Bedrock access guidance, temperature determinism claims, watermark/C2PA conflation, cross-Region residency assumptions, PEFT guarantees, key-deletion timing and overbroad compliance/fairness conclusions.
-- Added one ordering and one matching question per exam. Replaced selected trivia with context engineering, MCP, AgentCore, prompt versioning, distillation, LLM-as-a-judge, sustainability and intellectual-property-risk questions.
-- Added first-check learning scores, per-domain diagnostics, a mistake queue, fresh retries and attempt history.
-- Native buttons, select controls, modal dialogs, keyboard focus and mobile visual variants improve accessibility.
+The AIF-C01 practitioner app (5 × 65 questions, ordering/matching items, 90-minute timer, 58 generated SVG lessons) was replaced with an AIP-C01 program. The previous exam banks, lesson data and SVG assets were removed. The engine was rewritten rather than patched because the exam format differs (75 questions, 180 minutes, multiple choice and multiple response only) and because progress is now tracked per question, skill and task rather than per attempt.
 
-## Source use
+## Sources
 
-The supplied presentation and PDF were extracted locally and used as cross-checking material. The supplied PDF appears to be an excerpt ending in the early AI-services discussion, not the complete book; the 100-slide deck covers more topics. Neither attachment is copied into this public repository. New explanatory prose, examples and diagrams were authored for this app.
+- The **official AIP-C01 exam guide PDF** supplied by the learner: domains, weights, 20 tasks and their skills, scoring rules and the in-scope and out-of-scope service lists. Skill titles in `js/blueprint.js` are short paraphrases, not copies of the guide.
+- **Published exam summaries** (via web search) for the 75-question, 180-minute format. Sources disagreed on duration (a beta used 205 minutes). The guide does not state it. Confirm when booking.
+- AWS service behaviour is written from general knowledge of Amazon Bedrock, Knowledge Bases, Guardrails, Prompt Management, Prompt Flows, Agents, AgentCore, Strands Agents, MCP, SageMaker AI, OpenSearch, Step Functions and related services.
 
-Current primary references include:
+The sandbox that built this blocks `docs.aws.amazon.com`, so **reference links and fine-grained service claims were not re-verified against live documentation**. Treat the links as starting points. If a question's technical detail conflicts with current AWS docs, trust the docs and tell the maintainer.
 
-- [Exam guide, question formats and scoring](https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01/ai-practitioner-01.html)
-- [AI/ML domain](https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01/ai-practitioner-01-domain1.html)
-- [Generative AI domain](https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01/ai-practitioner-01-domain2.html)
-- [Foundation model domain](https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01/ai-practitioner-01-domain3.html)
-- [Responsible AI domain](https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01/ai-practitioner-01-domain4.html)
-- [Security and governance domain](https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01/ai-practitioner-01-domain5.html)
-- [Responsible AI dimensions](https://aws.amazon.com/ai/responsible-ai/)
-- [Bedrock model access](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html)
-- [Cross-Region inference](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html)
-- [Titan image provenance](https://docs.aws.amazon.com/bedrock/latest/userguide/titan-image-models.html)
-- [Bedrock AgentCore](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html)
-- [Prompt Management](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management.html)
-- [Model distillation](https://docs.aws.amazon.com/bedrock/latest/userguide/model-distillation.html)
+## Quality work done
 
-Service availability and console paths change. Current documentation limits Clarify and Model Monitor to existing customers; lessons flag this distinction. The exam may still require understanding their conceptual roles. Always consult the linked current AWS documentation before creating real resources.
+- Every question maps to a real task and skill in the blueprint; tests enforce this, plus option counts, per-option reasons, answer ranges and uniqueness.
+- Found and fixed a serious authoring flaw: in the first draft the correct answer was the longest option in **94%** of single-choice items (median 3.7× the length of the wrong options), which lets a learner score well without the knowledge. All option sets were rewritten with plausible distractors (real services used in a way that breaks a stated constraint). The measured figures are now **68%** longest and a median length ratio of **1.17×**.
+- Options are shuffled per attempt, so answer position carries no signal (a scripted "always click the first option" run scored chance level).
+- Multiple-response items need the exact set; there is no partial credit, matching the real exam.
 
-## Limits
+## Known limits
 
-The bank remains independent authored practice, not a calibrated predictor of exam performance. Some inherited questions have simplistic distractors or more implementation detail than AIF-C01 requires. Repeated underlying concepts are intentional revision, and some inherited scenarios overlap. Matching/ordering tasks use accessible selection controls rather than duplicating a proprietary testing UI. Native SVG assets provide conceptual and architecture visuals; no live AWS account was used to capture console screenshots. All 65 items are scored for learning feedback rather than pretending to know which 15 real-exam items are unscored.
+- The correct option is still a little more specific than its distractors on average (about 17% longer). Domains 4 and 5 are the most skewed. Do not use length as a strategy; it will not work on the real exam.
+- Difficulty is not psychometrically calibrated. Some items are easier than the real exam, which uses longer, denser scenarios with several plausible answers.
+- 306 questions is a practice bank, not a prediction. Domain 2 agent and MCP content and Domain 1 retrieval content are the deepest; Domain 4 and 5 have the fewest questions, in line with their weights.
+- Features that changed recently (AgentCore, S3 Vectors, Automated Reasoning checks, Bedrock Data Automation, API Gateway response streaming, Kiro) are described conservatively. Check current availability and limits.
+- The `labs/` folder is the earlier LocalStack lab program for the practitioner track and is untouched. LocalStack does not emulate Bedrock models, so it is of limited use for this exam.
+- Browser storage is per browser; clearing site data resets progress.
 
 ## Validation
 
-`node --test tests/exam.test.cjs` checks all 325 items and asset mappings, blueprint counts, four question types, exact-match scoring, first-check locking, multi-response reveal gating, deadline persistence/expiry, immutable results, retry clearing and invalid state handling. Browser smoke checks cover the deployed learner flow separately.
+`node --test tests/exam.test.cjs` checks the blueprint, study modules, all questions, mock composition and non-overlap, the 180-minute persisted deadline, learning-mode locking, exact-match scoring, adaptive selection, immutability of results and corrupt-state handling. A Playwright run completed a full 75-question mock, review, dashboard, drills and mobile layout without console errors.
