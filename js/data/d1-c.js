@@ -555,9 +555,9 @@
   sc: "Before promoting a new prompt version, a team wants to run it against 300 saved edge cases (empty input, extremely long input, multilingual text, adversarial text) and compare pass rates with the current version.",
   q: "Which approach is MOST suitable?",
   o: [
-    "A Step Functions workflow (Map state) that runs the edge cases through both versions, validates outputs with Lambda, and publishes pass-rate metrics",
-    "Test five hand-picked examples manually in the console and promote the version if they look reasonable",
-    "Deploy the new version and wait for customers to complain before deciding whether to revert it",
+    "A Step Functions Map state that runs the edge cases through both versions, validates outputs in Lambda, and publishes pass-rate metrics",
+    "Test five hand-picked examples manually in the console and promote the new version if the answers look reasonable to the author",
+    "Deploy the new version straight to production and wait for customers to complain before deciding whether it should be reverted",
     "Compare the lengths of the two prompt texts and promote the shorter one to reduce token cost"],
   a: [0],
   e: "An automated, parallel **regression suite** compares prompt versions on a fixed edge-case set and exposes results as metrics.",
@@ -645,10 +645,10 @@
   sc: "A workflow must pause for up to three days for a human approver, retry failed steps with backoff, and integrate with many AWS services. The team is considering Bedrock Prompt Flows.",
   q: "Which statement is MOST accurate?",
   o: [
-    "Step Functions is the better fit for long-running, approval-based, retry-heavy orchestration; Prompt Flows is best for visual prompt and model chaining",
-    "Prompt Flows is required for human approval wait states because only it can pause a workflow for days",
-    "Neither service can express conditions, so the branching logic must be written in application code",
-    "Amazon SNS alone can run the whole workflow, including waits, retries and service integrations"],
+    "Step Functions suits long-running, approval-based, retry-heavy orchestration; Prompt Flows suits visual prompt and model chaining",
+    "Prompt Flows is required for human approval wait states because it is the only service that can pause a workflow for several days",
+    "Neither service can express conditions, so all of the branching logic must be written in application code outside of them",
+    "Amazon SNS alone can run the whole workflow, including long waits, retries and integrations with other AWS services"],
   a: [0],
   e: "**Step Functions** supports long waits (callbacks), Retry/Catch and broad service integrations. **Prompt Flows** targets prompt/model/KB/agent chaining.",
   w: [

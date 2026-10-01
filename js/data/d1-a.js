@@ -42,10 +42,10 @@
   sc: "Five teams in an enterprise are building GenAI applications. Each team configures guardrails, logging and prompt templates differently, and security reviews are slow and inconsistent.",
   q: "Which approach BEST standardizes implementation and review across teams?",
   o: [
-    "Publish a wiki page of recommended settings and ask each team to follow it, with reviews done by each team's own lead",
-    "Provide shared infrastructure-as-code constructs with approved guardrails, logging and prompt templates, and review each workload with the Well-Architected Tool Generative AI Lens",
-    "Move all five teams into one shared AWS account with a single IAM role so that configuration is automatically identical",
-    "Let each team select its own tools and schedule a manual architecture review once a year"],
+    "Publish a wiki page of recommended settings and have each team follow it, with reviews done by the team lead of each team",
+    "Provide shared IaC constructs with approved guardrails, logging and prompt templates, and review each workload with the Generative AI Lens",
+    "Move all five teams into one shared AWS account with a single IAM role so that configuration is automatically identical across them",
+    "Let each team select its own tools and schedule a manual architecture review once a year, with findings tracked by each team"],
   a: [1],
   e: "Reusable, versioned components (CDK or CloudFormation modules, Service Catalog products) make the secure configuration the default. The **Well-Architected Tool with the Generative AI Lens** provides a structured, repeatable review.",
   w: [
@@ -319,9 +319,9 @@
   q: "Which pattern BEST prevents this cascading failure?",
   o: [
     "Increase the Lambda function timeout to the maximum so slow model calls have more time to finish",
-    "Retry immediately in a tight loop until the model call succeeds, so that every request is eventually answered",
-    "Implement a circuit breaker with Step Functions that records failures in DynamoDB and, past a threshold, routes to a fallback for a cool-down period",
-    "Remove retries and error handling so that failures surface immediately and free up concurrency faster"],
+    "Retry immediately in a tight loop until the model call succeeds, so that every request is eventually answered by the model",
+    "Implement a circuit breaker in Step Functions that records failures in DynamoDB and routes to a fallback past a threshold, for a cool-down period",
+    "Remove retries and error handling so that failures surface immediately and free up Lambda concurrency faster for other features"],
   a: [2],
   e: "A **circuit breaker** stops calling an unhealthy dependency after repeated failures, protecting capacity, and routes to a **fallback** until the dependency recovers.",
   w: [
@@ -430,10 +430,10 @@
   sc: "A team ships a new fine-tuned model version monthly. Compliance requires that only approved versions reach production and that a bad release can be reversed quickly.",
   q: "Which design BEST meets the requirements?",
   o: [
-    "Developers copy model artifacts to production S3 buckets by hand after manual testing in a notebook",
-    "Register versions in SageMaker Model Registry with approval status, deploy approved versions through a pipeline with blue/green or canary and alarm-based rollback",
-    "Deploy directly from a notebook and keep the previous model version on the developer's laptop in case of problems",
-    "Replace the production endpoint in place with the new version and restore the old one from a backup if needed"],
+    "Developers copy model artifacts to production S3 buckets by hand after manual testing in a notebook and notify operations by chat",
+    "Register versions in SageMaker Model Registry with approval status, then deploy approved versions by pipeline with canary shifting and alarm-based rollback",
+    "Deploy directly from a notebook and keep the previous model version on the developer's laptop so that it can be redeployed if a problem appears",
+    "Replace the production endpoint in place with the new version and restore the old one from a backup copy if users report problems"],
   a: [1],
   e: "**Model Registry** provides versioning, lineage and approval gates; an automated pipeline with **blue/green or canary** deployment and alarm-triggered **rollback** gives safe, reversible releases.",
   w: [

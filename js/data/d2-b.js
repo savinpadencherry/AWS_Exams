@@ -5,17 +5,17 @@
   sc: "A customer-facing assistant has steady, high traffic around the clock and a contractual latency SLA. On-demand inference occasionally returns throttling errors at peak, which breaches the SLA.",
   q: "Which Amazon Bedrock option BEST meets the requirement?",
   o: [
-    "Purchase Provisioned Throughput for the model to reserve guaranteed capacity",
-    "Use batch inference for all requests",
-    "Add a Lambda function that sleeps before each call",
-    "Switch to a smaller context window"],
+    "Purchase Provisioned Throughput for the model to reserve guaranteed capacity at the traffic level the SLA requires",
+    "Move all requests to batch inference so that the model processes them in the background at a lower price per token",
+    "Add a Lambda function that sleeps for a random interval before each call so that peak requests are spread out",
+    "Switch to a model with a smaller context window so that each request uses less of the shared on-demand capacity"],
   a: [0],
   e: "**Provisioned Throughput** reserves model units for consistent throughput and latency, suited to steady, high, SLA-bound workloads.",
   w: [
-    "Guaranteed capacity addresses throttling at peak.",
-    "Batch inference is asynchronous and cannot meet interactive latency.",
-    "Sleeping increases latency and does not add capacity.",
-    "Context window size does not provide capacity."]
+    "Guaranteed capacity addresses throttling at peak and provides consistent latency.",
+    "Batch inference is asynchronous and cannot meet an interactive latency SLA.",
+    "Sleeping adds latency and does not add capacity.",
+    "Context window size does not provide guaranteed capacity."]
 },
 
 {
@@ -23,14 +23,14 @@
   sc: "A publisher wants to generate summaries for 3 million archived articles over the weekend. There is no interactive latency requirement and cost matters.",
   q: "Which approach is MOST cost-effective?",
   o: [
-    "Amazon Bedrock batch inference with input and output in Amazon S3",
-    "On-demand synchronous calls from a Lambda function at maximum concurrency",
-    "Provisioned Throughput purchased for a one-year term",
-    "A real-time SageMaker AI endpoint on the largest GPU instance"],
+    "Amazon Bedrock batch inference with input and output files stored in Amazon S3",
+    "On-demand synchronous Converse calls from a Lambda function configured with maximum concurrency over the weekend",
+    "Provisioned Throughput purchased on a one-year commitment so that the weekend job has guaranteed capacity",
+    "A real-time SageMaker AI endpoint on the largest GPU instance type, kept running for the whole weekend"],
   a: [0],
   e: "**Batch inference** processes large JSONL jobs asynchronously at a lower price than on-demand for non-interactive work.",
   w: [
-    "Designed for large offline workloads with a discount.",
+    "Designed for large offline workloads and priced lower than on-demand.",
     "Synchronous calls at scale invite throttling and cost more.",
     "A one-year commitment for a weekend job wastes money.",
     "An always-on large endpoint is expensive for a one-time job."]
@@ -41,17 +41,17 @@
   sc: "A company must run an open-weight model with a custom inference script (for specialized token post-processing), inside a VPC with no internet access, using specific GPU instance types.",
   q: "Which deployment is MOST appropriate?",
   o: [
-    "An Amazon SageMaker AI real-time endpoint using a large model inference container with the custom inference code, deployed in the VPC",
-    "Amazon Bedrock on-demand with the Converse API",
-    "AWS Lambda with the model weights in the deployment package",
-    "Amazon API Gateway mock integration"],
+    "A SageMaker AI real-time endpoint using a large model inference container with the custom inference code, deployed in the VPC",
+    "Amazon Bedrock on-demand inference through the Converse API, with the post-processing logic added to the application",
+    "AWS Lambda with the model weights included in the deployment package and the custom inference code as the handler",
+    "An Amazon API Gateway endpoint with a mock integration that returns precomputed model outputs from a mapping template"],
   a: [0],
   e: "Custom inference code, instance choice and network isolation point to **SageMaker AI endpoints** with an LMI container in your VPC.",
   w: [
-    "Full control over container, code, instances and networking.",
-    "Bedrock does not allow custom serving code for arbitrary open-weight models.",
-    "Lambda cannot host large model weights and GPUs.",
-    "A mock integration returns canned responses."]
+    "Full control over container, code, instance type and networking.",
+    "Bedrock does not allow custom serving code or specific instance types for arbitrary open-weight models.",
+    "Lambda cannot host large model weights or GPUs.",
+    "A mock integration returns canned responses, not model inference."]
 },
 
 {
@@ -59,16 +59,16 @@
   sc: "A document-intelligence workload sends payloads up to 500 MB to a hosted model. Requests can take several minutes, results are not needed instantly, and traffic is sporadic with long idle periods.",
   q: "Which SageMaker AI inference option fits BEST?",
   o: [
-    "Asynchronous inference, which queues requests, supports large payloads and can scale to zero when idle",
-    "Real-time inference on a single always-on instance",
-    "Serverless inference for GPU workloads with large payloads",
-    "Batch transform triggered manually for every request"],
+    "Asynchronous inference, which queues requests, supports large payloads and can scale to zero when the endpoint is idle",
+    "Real-time inference on a single always-on instance, with a long client-side timeout for each request",
+    "Serverless inference, which scales to zero and is designed for GPU workloads with large payloads",
+    "Batch transform jobs started manually by an operator each time a document arrives"],
   a: [0],
   e: "**Asynchronous inference** handles large payloads and long processing times, queues requests and can scale to zero.",
   w: [
-    "Matches payload size, duration and idle periods.",
+    "Matches payload size, long duration and idle periods.",
     "Real-time endpoints have payload and timeout limits and bill while idle.",
-    "Serverless inference has size and duration limits unsuited to this.",
+    "Serverless inference has payload and duration limits and no GPU support suited to this workload.",
     "Manual batch transform adds operational burden and latency."]
 },
 
@@ -78,16 +78,16 @@
   q: "Which approach resolves the memory constraint?",
   o: [
     "Shard the model across multiple GPUs with tensor parallelism, or quantize the weights to a lower precision to reduce the footprint",
-    "Increase the Lambda memory setting",
-    "Lower the temperature",
-    "Switch to a model with a longer context window"],
+    "Increase the Lambda memory setting so that the model is loaded into a larger pool of memory before inference",
+    "Lower the temperature so that the model produces shorter outputs and therefore needs less memory",
+    "Switch to a model variant with a longer context window so that more of the weights can be cached"],
   a: [0],
   e: "LLM weights plus the **KV cache** must fit in GPU memory. Use **tensor parallelism** across GPUs or **quantization** (and size instances accordingly).",
   w: [
-    "Directly addresses weights and KV-cache memory.",
+    "Directly addresses the memory needed for weights and the KV cache.",
     "Lambda memory is unrelated to GPU memory.",
-    "Temperature does not affect memory.",
-    "Longer contexts require more KV-cache memory."]
+    "Temperature does not affect memory requirements.",
+    "Longer contexts require more KV-cache memory, not less."]
 },
 
 {
@@ -95,17 +95,17 @@
   sc: "An LLM endpoint handles many concurrent requests of varying length. GPU utilization is low because requests are processed one at a time and short requests wait behind long ones.",
   q: "Which serving feature improves throughput MOST?",
   o: [
-    "Continuous batching in an optimized serving framework (for example vLLM or TensorRT-LLM in a large model inference container)",
-    "Reducing the number of GPU instances to one",
-    "Disabling streaming",
-    "Using a higher temperature"],
+    "Continuous batching in an optimized serving framework, for example vLLM or TensorRT-LLM in a large model inference container",
+    "Reduce the number of GPU instances to one so that all requests are queued in a single, predictable order",
+    "Disable response streaming so that each reply is sent in one piece and the GPU is released sooner",
+    "Raise the temperature so that the model finishes each response faster using more varied token choices"],
   a: [0],
   e: "**Continuous (in-flight) batching** schedules tokens from multiple requests together, keeping the GPU busy and improving token throughput.",
   w: [
-    "Raises GPU utilization and throughput for concurrent requests.",
-    "Fewer instances reduces capacity.",
+    "Schedules tokens from multiple requests together, keeping the GPU busy and improving throughput.",
+    "Fewer instances reduces capacity and worsens queueing.",
     "Streaming affects delivery, not GPU scheduling.",
-    "Temperature is a sampling setting."]
+    "Temperature is a sampling setting that does not improve GPU utilization."]
 },
 
 {
@@ -114,16 +114,16 @@
   q: "Which pattern reduces cost MOST while maintaining quality?",
   o: [
     "Model cascading: try a smaller model first and escalate to the larger model when the task is complex or confidence is low",
-    "Always use the largest model for safety",
-    "Always use the smallest model",
-    "Reduce the number of users"],
+    "Always use the largest model for every request, because it is the safest choice for every query type",
+    "Always use the smallest model for every request and accept the lower quality on complex questions",
+    "Reduce the number of users by limiting access to the assistant to staff who really need it"],
   a: [0],
   e: "**Cascading** (or routing) sends routine queries to a cheap model and reserves the expensive model for hard cases.",
   w: [
     "Captures savings on the simple majority while protecting hard cases.",
-    "Overpays on 70% of traffic.",
-    "Fails on the 30% that need reasoning.",
-    "Not a technical solution."]
+    "Overpays on the 70% of traffic that is simple.",
+    "Fails on the 30% that need stronger reasoning.",
+    "Not a technical cost-optimization solution and harms the business."]
 },
 
 {
@@ -131,17 +131,17 @@
   sc: "A company needs to classify support tickets into 12 categories at very high volume. A fine-tuned small pre-trained model matches the accuracy of a much larger model on a golden test set.",
   q: "What should the developer do?",
   o: [
-    "Deploy the smaller model for this task to reduce cost and latency",
-    "Deploy the larger model because it is more capable in general",
-    "Combine both models for every request",
-    "Delay launch until a larger model is released"],
+    "Deploy the smaller model for this task to reduce cost and latency, since it meets the evaluated accuracy bar",
+    "Deploy the larger model because it is more capable in general and will be safer if the ticket types change",
+    "Run both models on every request and keep the answer on which they agree to improve accuracy further",
+    "Delay the launch until a larger model is released that might outperform both of the current candidates"],
   a: [0],
   e: "If a smaller model **meets the evaluated quality bar**, it wins on cost and latency. Capability beyond the task requirement is wasted spend.",
   w: [
-    "Evidence shows equal accuracy at lower cost.",
-    "General capability is irrelevant when the task is narrow and measured.",
-    "Running both doubles cost without benefit.",
-    "Unnecessary delay."]
+    "Evidence shows equal accuracy at lower cost and latency.",
+    "General capability is wasted on a narrow, measured task.",
+    "Running both doubles cost without a measured benefit.",
+    "Unnecessary delay, with no evidence of a quality gap."]
 },
 
 {
@@ -149,17 +149,17 @@
   sc: "A company's general assistant uses Amazon Bedrock foundation models, but one feature requires a domain-specific model the team fine-tuned and hosts itself. They want a single application to use both, with the choice made per request.",
   q: "Which architecture is MOST appropriate?",
   o: [
-    "A hybrid design: Bedrock for general tasks and a SageMaker AI endpoint for the specialised model, selected by a routing layer in the application",
-    "Move everything to a single SageMaker endpoint and abandon Bedrock",
-    "Fine-tune the model again inside Lambda",
-    "Use two separate applications and ask users to pick"],
+    "A hybrid design: Bedrock for general tasks and a SageMaker AI endpoint for the specialized model, selected by a routing layer",
+    "Move everything to a single SageMaker AI endpoint and retire the Bedrock models used by the general assistant",
+    "Re-run fine-tuning of the specialized model inside a Lambda function at the start of each request",
+    "Build two separate applications, one for each model, and ask users to choose which one to open"],
   a: [0],
   e: "**Hybrid deployments** combine managed Bedrock models with self-hosted specialised models, with routing logic choosing per request.",
   w: [
-    "Uses each platform where it is strongest.",
-    "Gives up managed models without need.",
-    "Lambda cannot perform model fine-tuning.",
-    "Poor user experience."]
+    "Uses each platform where it is strongest, with per-request selection.",
+    "Gives up managed models without need and adds hosting work.",
+    "Lambda cannot perform model fine-tuning for each request.",
+    "A poor user experience with no routing logic."]
 },
 
 {
@@ -168,14 +168,14 @@
   q: "Which scaling signal is MOST appropriate for LLM serving?",
   o: [
     "Concurrent requests, queue depth or GPU utilization per replica, rather than CPU alone",
-    "CPU utilization only",
-    "Number of S3 objects",
-    "The time of day only"],
+    "CPU utilization of each pod, because CPU load is the standard indicator for container scaling decisions",
+    "The number of objects in the model artifact bucket, since larger buckets indicate heavier inference demand",
+    "The time of day only, using a fixed schedule that adds replicas during business hours"],
   a: [0],
   e: "LLM serving is **GPU- and token-bound**. Scale on **concurrency, queue depth or GPU utilization**; CPU often stays low while the GPU saturates.",
   w: [
-    "Reflects real saturation of GPU-based inference.",
-    "CPU may remain low while GPUs are saturated.",
+    "LLM serving is GPU- and token-bound, so saturation shows up in concurrency, queues and GPU use.",
+    "CPU often stays low while the GPUs are saturated.",
     "Object counts do not measure inference load.",
     "A fixed schedule cannot follow real traffic."]
 },
@@ -185,17 +185,17 @@
   sc: "A startup has a daily spike of requests at 9 AM and almost no traffic otherwise. It wants predictable low latency during the spike, but not to pay for idle capacity all day.",
   q: "Which approach is MOST appropriate?",
   o: [
-    "Use on-demand Bedrock with retries and cross-Region inference for the spike, and consider time-bound Provisioned Throughput only if spike throttling persists",
-    "Buy a six-month Provisioned Throughput commitment immediately",
-    "Run GPU instances 24/7",
-    "Disable retries so errors surface quickly"],
+    "Use on-demand Bedrock with retries and cross-Region inference for the spike, adding time-bound Provisioned Throughput only if throttling persists",
+    "Buy a six-month Provisioned Throughput commitment immediately so that peak latency is guaranteed from day one",
+    "Run GPU instances around the clock so that capacity is always available for the morning peak and no throttling occurs",
+    "Disable retries so that errors surface quickly and the application can show a message instead of waiting"],
   a: [0],
   e: "Match the purchase model to the traffic shape. Short predictable spikes rarely justify long commitments; start with on-demand plus resilience measures and measure.",
   w: [
-    "Starts cheap and escalates only with evidence.",
-    "A long commitment pays for idle hours.",
-    "Round-the-clock GPUs are expensive.",
-    "Disabling retries worsens errors during spikes."]
+    "Starts cheap and escalates only with evidence of need.",
+    "A long commitment pays for idle hours outside the daily spike.",
+    "Round-the-clock GPUs are expensive for a single daily spike.",
+    "Disabling retries worsens errors during the spike."]
 },
 
 {
@@ -205,17 +205,17 @@
   o: [
     "GPU memory must hold the model weights and a KV cache that grows with context length and concurrency",
     "Capacity is better planned in tokens per minute than only in requests per second",
-    "Models never need to be monitored",
-    "Latency is unaffected by output length",
-    "Quantization is impossible"],
+    "Large language models never need to be monitored once they are deployed, because their behavior is fixed",
+    "Latency is unaffected by output length, because the full response is generated in a single pass",
+    "Quantization is impossible for large language models because their weights must stay at full precision"],
   a: [0,1],
   e: "LLM serving is dominated by **memory** (weights plus KV cache) and **token throughput**, and latency grows with output length.",
   w: [
     "KV-cache growth is a defining LLM constraint.",
     "Token-based throughput is the right planning unit.",
-    "Monitoring remains essential.",
-    "Generating more tokens takes longer.",
-    "Quantization is a common optimisation."]
+    "Monitoring remains essential for latency, cost and quality.",
+    "Generating more tokens takes longer, token by token.",
+    "Quantization is a common optimization."]
 },
 
 {
@@ -223,17 +223,17 @@
   sc: "A manufacturer wants an AI assistant to query a legacy inventory system that only exposes a SOAP interface and cannot be modified. Security requires that the assistant never connects to the system directly.",
   q: "Which design is MOST appropriate?",
   o: [
-    "Wrap the legacy interface behind an API layer (API Gateway with Lambda that translates calls), and expose it to the agent as a tool",
-    "Give the foundation model the system's network credentials",
-    "Rewrite the legacy application before starting",
-    "Export the inventory to a spreadsheet by hand every day"],
+    "Wrap the legacy interface behind an API layer (API Gateway with a Lambda function that translates calls) and expose it to the agent as a tool",
+    "Give the foundation model the network credentials of the legacy system so that it can call the SOAP interface directly",
+    "Rewrite the legacy inventory application with a modern REST interface before starting any GenAI work on the assistant",
+    "Export the inventory to a spreadsheet by hand every morning and upload it to the knowledge base for the assistant"],
   a: [0],
   e: "An **API facade** (API Gateway + Lambda) isolates the legacy system, enforces authentication and validation, and lets the AI call it as a tool without modifying it.",
   w: [
-    "Decouples the AI from the legacy interface and enforces control.",
-    "Direct credentials violate the security rule.",
-    "Unneeded delay and cost.",
-    "Manual exports are stale and unscalable."]
+    "An API facade isolates the legacy system, enforces authentication and validation, and needs no change to it.",
+    "Direct credentials violate the stated security rule.",
+    "Unneeded delay and cost, and the requirement says the system cannot be modified.",
+    "Manual exports go stale and do not scale."]
 },
 
 {
@@ -241,14 +241,14 @@
   sc: "When a support ticket is created in an existing ticketing system, a GenAI summary should be generated and attached to the ticket. The ticketing team does not want its system to depend on the AI service being available.",
   q: "Which integration pattern is BEST?",
   o: [
-    "Event-driven: publish a ticket-created event to Amazon EventBridge, trigger a summarisation workflow, and write the result back asynchronously",
-    "Have the ticketing system call the model synchronously and block ticket creation until it returns",
-    "Poll the ticket database every second from an EC2 instance",
-    "Require agents to copy ticket text into a chat window"],
+    "Publish a ticket-created event to Amazon EventBridge, trigger a summarization workflow, and write the result back asynchronously",
+    "Have the ticketing system call the model synchronously and block ticket creation until the summary is returned",
+    "Poll the ticket database every second from an EC2 instance and generate a summary for each new ticket found",
+    "Require agents to copy ticket text into a separate chat window and paste the generated summary back by hand"],
   a: [0],
   e: "**Event-driven loose coupling** means ticket creation never waits on or fails because of the AI service; processing happens asynchronously.",
   w: [
-    "Decouples availability and scales independently.",
+    "Event-driven loose coupling means ticket creation never waits on or fails because of the AI service.",
     "Synchronous blocking couples ticketing availability to the AI service.",
     "Tight polling is wasteful and operationally heavy.",
     "Manual copying defeats automation."]
@@ -259,15 +259,15 @@
   sc: "A SaaS CRM sends HTTPS webhook callbacks when a lead is updated. The company wants to enrich each lead with an AI-generated summary and handle duplicate webhook deliveries safely.",
   q: "Which design is MOST appropriate?",
   o: [
-    "API Gateway endpoint triggering a Lambda webhook handler that verifies the signature, deduplicates by event ID (for example with DynamoDB conditional writes), and calls Amazon Bedrock",
-    "Allow the CRM to write directly into the model's prompt",
-    "Run a fleet of EC2 instances polling the CRM",
-    "Send webhooks by email"],
+    "An API Gateway endpoint triggering a Lambda webhook handler that verifies the signature, deduplicates by event ID, and calls Bedrock",
+    "Allow the CRM to write directly into the model's prompt through a public endpoint that accepts raw text",
+    "Run a fleet of EC2 instances that poll the CRM every few seconds and process any lead that has changed",
+    "Ask the CRM vendor to send webhook events by email to an inbox that a person forwards to the AI team"],
   a: [0],
   e: "Webhook handlers belong in a thin, authenticated, **idempotent** layer: API Gateway plus Lambda with deduplication, then the model call.",
   w: [
-    "Authenticated and idempotent handling of inbound events.",
-    "Models do not accept webhooks.",
+    "A thin, authenticated and idempotent webhook layer, then the model call.",
+    "Models do not accept webhooks, and an unauthenticated endpoint is unsafe.",
     "Polling is heavier and slower than push.",
     "Email is not an integration protocol here."]
 },
@@ -277,17 +277,17 @@
   sc: "Employees sign in through the company's corporate identity provider. The GenAI application must grant access based on department roles, and no separate user database should be created.",
   q: "Which approach is MOST appropriate?",
   o: [
-    "Federate the corporate identity provider with AWS (IAM Identity Center or Amazon Cognito using SAML/OIDC) and map identity-provider groups to application roles",
-    "Create a shared username and password for each department",
-    "Store employee passwords in DynamoDB",
-    "Allow anonymous access and filter by IP address"],
+    "Federate the corporate identity provider with AWS (IAM Identity Center or Cognito with SAML/OIDC) and map identity-provider groups to application roles",
+    "Create a shared username and password for each department and distribute it to the employees in that department",
+    "Store employee passwords in a DynamoDB table so that the application can verify logins without any external identity system",
+    "Allow anonymous access to the application and restrict by corporate IP address ranges instead of user roles"],
   a: [0],
   e: "**Identity federation** reuses corporate identities and groups for role-based access, avoiding duplicate credential stores.",
   w: [
-    "Single source of identity with role mapping.",
+    "A single source of identity with role mapping, and no duplicate credential store.",
     "Shared credentials destroy accountability.",
     "Custom password storage is risky and redundant.",
-    "IP filtering is not user-level authorization."]
+    "IP filtering is not user-level, role-based authorization."]
 },
 
 {
@@ -297,16 +297,16 @@
   o: [
     "Scope IAM permissions for bedrock:InvokeModel to the specific model or inference profile ARNs each application needs",
     "Use IAM condition keys (for example requiring a specific guardrail) to enforce safety settings on invocations",
-    "Grant bedrock:* on all resources to simplify deployment",
-    "Share one access key between all applications",
-    "Allow invocation from any IAM principal in the account"],
+    "Grant bedrock:* on all resources to every application role to simplify deployment and troubleshooting",
+    "Share one IAM access key between all applications so that credentials can be rotated in a single place",
+    "Allow invocation from any IAM principal in the account so that new applications can start without a policy change"],
   a: [0,1],
   e: "**Resource-level permissions** and **condition keys** enforce least privilege and mandatory guardrails. Wildcards and shared keys defeat accountability.",
   w: [
     "Limits which models can be invoked.",
     "Conditions can require guardrails on invocations.",
     "Wildcards grant excessive access.",
-    "Shared keys prevent attribution and rotation hygiene.",
+    "Shared keys prevent attribution and increase the impact of a leak.",
     "Account-wide access violates least privilege."]
 },
 
@@ -315,16 +315,16 @@
   sc: "A RAG chatbot over HR documents must ensure each employee only sees content they are authorised to read. Authorization data comes from the identity provider (department, region, clearance).",
   q: "Which design BEST enforces this?",
   o: [
-    "Pass the authenticated user's attributes to the retrieval layer and apply metadata filters (or per-group indexes) so unauthorised chunks are never retrieved",
-    "Tell the model not to reveal documents the user should not see",
-    "Retrieve all documents and let the model decide what to show",
-    "Use a single shared service account and trust the UI"],
+    "Pass the signed-in user's attributes to retrieval and apply metadata filters (or per-group indexes) so unauthorized chunks are never retrieved",
+    "Tell the model in the system prompt not to reveal documents that the signed-in user is not authorized to read",
+    "Retrieve all matching documents and let the model decide which parts of them are appropriate to show to the current user",
+    "Use one shared service account for retrieval and rely on the user interface to hide any content that is restricted"],
   a: [0],
   e: "**Enforce authorization at retrieval**, so restricted chunks never reach the prompt. The model cannot be trusted to withhold information it has already been given.",
   w: [
-    "Server-side filtering before generation.",
-    "Prompt instructions can be bypassed.",
-    "Unauthorized content is already exposed to the model.",
+    "Server-side filtering before generation keeps restricted content out of the prompt.",
+    "Prompt instructions can be bypassed by injection.",
+    "Unauthorized content has already been exposed to the model.",
     "UI-only controls can be bypassed."],
   trap: "Never rely on the model to enforce access control."
 },
@@ -334,15 +334,15 @@
   sc: "A hospital must keep raw patient records on premises. It wants to use foundation models in AWS for summarisation using only de-identified text, with private connectivity and no public internet path.",
   q: "Which architecture is MOST appropriate?",
   o: [
-    "De-identify data on premises, connect to AWS over AWS Direct Connect or Site-to-Site VPN into a VPC, and call Amazon Bedrock through an interface VPC endpoint (AWS PrivateLink)",
-    "Upload raw records to a public S3 bucket and call Bedrock over the internet",
-    "Email de-identified text to the model",
-    "Disable encryption to reduce latency"],
+    "De-identify data on premises, connect over Direct Connect or Site-to-Site VPN into a VPC, and call Bedrock through an interface VPC endpoint (PrivateLink)",
+    "Upload the raw patient records to a public S3 bucket and call Bedrock over the internet from a public endpoint",
+    "Email the de-identified text to a mailbox that an automation reads and forwards to the foundation model",
+    "Disable encryption on the connection to reduce latency, since the data has been de-identified before sending"],
   a: [0],
   e: "Keep sensitive data local, **de-identify before leaving**, and use **private connectivity** (Direct Connect/VPN + PrivateLink VPC endpoint) to reach AWS services.",
   w: [
-    "Combines data minimisation with private routing.",
-    "Public exposure violates the requirement.",
+    "Combines data minimization with private routing.",
+    "Public exposure violates the requirement and the raw data must stay on premises.",
     "Email is not a secure integration path.",
     "Encryption must remain enabled."]
 },
@@ -353,16 +353,16 @@
   q: "Which AWS service helps place compute closest to the mobile users?",
   o: [
     "AWS Wavelength",
-    "AWS Direct Connect",
-    "Amazon S3 Glacier",
-    "AWS Snowball"],
+    "AWS Direct Connect, with a dedicated link from the mobile carrier's data center to the AWS Region",
+    "Amazon S3 Glacier, with pre-processing code stored in the archive near the mobile users",
+    "AWS Snowball Edge, shipped to each mobile user location to host the pre-processing code"],
   a: [0],
   e: "**AWS Wavelength** embeds AWS compute inside 5G networks, reducing latency for mobile edge workloads.",
   w: [
-    "Edge compute within 5G networks.",
-    "Direct Connect provides private network links, not edge compute.",
+    "Wavelength embeds AWS compute inside 5G networks, reducing latency for mobile edge workloads.",
+    "Direct Connect provides a private network link, not edge compute near users.",
     "Glacier is archival storage.",
-    "Snowball is data transfer hardware."]
+    "Snowball Edge is data transfer and edge hardware, not a 5G edge service."]
 },
 
 {
@@ -370,17 +370,17 @@
   sc: "A multinational must keep EU customers' data processing within the EU and US customers' within the US. The same application serves both.",
   q: "Which design is MOST appropriate?",
   o: [
-    "Deploy regional stacks, route users with Amazon Route 53 geolocation routing, and use Region-appropriate (geography-scoped) inference profiles and data stores",
-    "One global stack in a single Region for all users",
-    "A global inference profile for all traffic",
-    "Disable logging to avoid data movement"],
+    "Deploy regional stacks, route users with Route 53 geolocation routing, and use Region-appropriate (geography-scoped) inference profiles and data stores",
+    "Run one global stack in a single Region for all users and rely on contracts to cover data residency",
+    "Use a global inference profile for all traffic so that every user is served from the nearest available Region",
+    "Disable logging to avoid moving any data between Regions, and process everything in the Region with spare capacity"],
   a: [0],
   e: "**Regional deployments with geo-routing** and **geography-scoped inference profiles** keep processing within jurisdictions.",
   w: [
     "Keeps each user population within its jurisdiction.",
     "Moves EU data outside the EU.",
     "Global profiles may process in any Region.",
-    "Disabling logging weakens compliance evidence."]
+    "Disabling logging weakens compliance evidence and does not control where processing occurs."]
 },
 
 {
@@ -388,16 +388,16 @@
   sc: "A team ships prompt, guardrail and agent configuration changes through a Git repository. They want every change automatically tested for regression and security issues, and rolled back if the deployment fails.",
   q: "Which approach is MOST appropriate?",
   o: [
-    "AWS CodePipeline orchestrating AWS CodeBuild stages that run evaluation tests and security scans, then deploying with rollback support (for example CodeDeploy or CloudFormation)",
-    "Manually copy changes to production in the console",
-    "Deploy directly from developer laptops",
-    "Run tests only in production after release"],
+    "CodePipeline orchestrating CodeBuild stages that run evaluation tests and security scans, then deploying with rollback support",
+    "Manually copy the changes to production in the console after a developer has tested them on a local machine",
+    "Deploy directly from developer laptops using personal credentials, with a chat message to announce the change",
+    "Run the tests only in production after release and revert manually if any user reports a problem"],
   a: [0],
   e: "A **CI/CD pipeline** (CodePipeline + CodeBuild + deployment with rollback) automates **testing, scanning and safe releases** for GenAI components.",
   w: [
-    "Automated quality gates and rollback.",
+    "Automated quality gates, security scans and rollback for GenAI components.",
     "Manual copying is error-prone and unauditable.",
-    "Laptop deployments lack controls.",
+    "Laptop deployments lack controls and audit trails.",
     "Production-only testing exposes users to regressions."]
 },
 
@@ -406,16 +406,16 @@
   sc: "Twenty product teams call Amazon Bedrock directly with their own keys and settings. The company wants centralised authentication, per-team quotas, mandatory guardrails, request logging, and the ability to change models without teams modifying code.",
   q: "Which architecture addresses these requirements?",
   o: [
-    "A centralised GenAI gateway (for example API Gateway with Lambda or a container service) that all applications call, enforcing authentication, quotas, guardrails, logging and model routing",
-    "Let each team continue calling Bedrock directly",
-    "Ask each team to log to a spreadsheet",
-    "Create one IAM user shared by all teams"],
+    "A centralized GenAI gateway that all applications call, enforcing authentication, quotas, guardrails, logging and model routing",
+    "Let each team continue calling Bedrock directly and publish a document describing the preferred settings, guardrails and logging for all teams",
+    "Ask each team to record its model usage in a shared spreadsheet that the platform team reviews at the end of every month",
+    "Create one IAM user with Bedrock access and share its credentials with all twenty teams so that usage is centrally controlled"],
   a: [0],
   e: "A **GenAI gateway** is a single abstraction layer providing consistent security, quotas, guardrails, observability and routing.",
   w: [
-    "One control point for cross-cutting concerns.",
+    "One control point for cross-cutting concerns, with model changes hidden from callers.",
     "Direct calls leave policy up to each team.",
-    "Spreadsheet logging is not observability.",
+    "Spreadsheet logging is not observability or enforcement.",
     "A shared user removes attribution and quota separation."]
 },
 
@@ -426,17 +426,17 @@
   o: [
     "Per-team usage plans or quotas with request throttling and cost attribution tags",
     "Central request/response logging and tracing with consistent guardrail enforcement",
-    "Direct exposure of foundation model credentials to client applications",
-    "A requirement that each team implement its own security controls",
-    "Removal of all authentication for convenience"],
+    "Direct exposure of foundation model credentials to client applications so that they can call models faster",
+    "A requirement that each team implement its own security controls and logging inside its application",
+    "Removal of authentication on internal calls to keep the gateway simple and fast for all callers"],
   a: [0,1],
   e: "A gateway centralises **quota/cost control** and **observability and safety enforcement**. Pushing credentials to clients or authentication removal defeats its purpose.",
   w: [
     "Quotas and cost attribution per team.",
-    "Uniform logging and guardrails.",
-    "Exposing credentials is insecure.",
-    "Decentralised controls recreate the inconsistency.",
-    "Authentication is mandatory."]
+    "Uniform logging, tracing and guardrails.",
+    "Exposing credentials is insecure and defeats the gateway.",
+    "Decentralized controls recreate the inconsistency.",
+    "Authentication is mandatory for a shared gateway."]
 },
 
 {
@@ -445,16 +445,16 @@
   q: "Which synchronisation pattern is MOST appropriate?",
   o: [
     "DynamoDB Streams triggering AWS Lambda to re-embed changed items and upsert them into the vector store",
-    "A weekly full re-index",
-    "Manual updates by the support team",
-    "Replace the vector store with CloudTrail logs"],
+    "A full re-index of the product table once a week, scheduled during a low-traffic period",
+    "Manual updates by the support team whenever they notice that a product description has changed",
+    "Replace the vector store with CloudTrail logs and query the change history during each request"],
   a: [0],
   e: "**Change data capture** with **DynamoDB Streams** and Lambda provides near-real-time incremental synchronisation to the vector store.",
   w: [
-    "Incremental, event-driven and fast.",
+    "Incremental, event-driven change data capture with near-real-time updates.",
     "A weekly rebuild leaves long staleness windows.",
     "Manual processes do not scale.",
-    "CloudTrail is an audit log, not a data source."]
+    "CloudTrail is an audit log, not a product data source."]
 },
 
 {
@@ -462,17 +462,17 @@
   sc: "A document service emits events at unpredictable bursts. A Lambda function that calls Bedrock for each event is being throttled and some events are lost on failures.",
   q: "Which change improves reliability MOST?",
   o: [
-    "Place an Amazon SQS queue between the event source and Lambda, with a dead-letter queue and a limited maximum concurrency on the event source mapping",
-    "Increase the Lambda memory to the maximum",
-    "Remove retries",
-    "Send events to the model directly in the prompt"],
+    "Place an SQS queue between the event source and Lambda, with a dead-letter queue and a limited maximum concurrency on the event source mapping",
+    "Increase the Lambda memory to the maximum so that each invocation runs faster and fewer simultaneous calls are needed",
+    "Remove retries from the function so that throttled events fail quickly instead of waiting in the queue",
+    "Send the events to the model directly inside the prompt so that the function does not need to call Bedrock"],
   a: [0],
   e: "A **queue buffer** with controlled concurrency respects Bedrock quotas, retries failures and preserves failed messages in a **DLQ**.",
   w: [
-    "Buffering, concurrency control and DLQ prevent loss and throttling cascades.",
-    "More memory does not change Bedrock throttling or loss.",
-    "Without retries failures are lost.",
-    "Events cannot be sent through prompts."]
+    "A queue buffer with controlled concurrency respects Bedrock quotas, retries failures and preserves failed messages in a DLQ.",
+    "More memory does not change Bedrock throttling or message loss.",
+    "Without retries, failures are lost.",
+    "Events cannot be sent through prompts to bypass the API."]
 },
 
 {
@@ -480,15 +480,15 @@
   sc: "Several application accounts need to call foundation models that are enabled and governed in one central AI platform account, using short-lived credentials and an audit trail.",
   q: "Which approach is MOST appropriate?",
   o: [
-    "Cross-account IAM roles that application accounts assume (via AWS STS) with permissions limited to approved models, with calls recorded in AWS CloudTrail",
-    "Copy long-term access keys to every account",
-    "Make the central account's resources public",
-    "Use the root user in every account"],
+    "Cross-account IAM roles that application accounts assume through STS, limited to approved models, with calls recorded in CloudTrail",
+    "Copy long-term IAM access keys for the platform account into every application account and rotate them yearly",
+    "Make the central account's model access public and rely on application-level checks to restrict callers",
+    "Use the root user of the platform account from every application account for simplicity of administration"],
   a: [0],
   e: "**Cross-account role assumption** gives temporary credentials with least privilege, and CloudTrail records who assumed and invoked what.",
   w: [
-    "Short-lived, scoped and auditable.",
-    "Long-term keys increase exposure.",
+    "Short-lived, scoped and auditable access.",
+    "Long-term keys increase exposure and have no per-call auditing of assumption.",
     "Public resources eliminate access control.",
     "Root use is a major security anti-pattern."]
 },
@@ -499,15 +499,15 @@
   q: "Which AWS offering provides AWS infrastructure and services on premises?",
   o: [
     "AWS Outposts",
-    "Amazon CloudFront",
-    "AWS Global Accelerator",
-    "Amazon Route 53"],
+    "Amazon CloudFront with an origin in the plant, so that requests are served from edge locations near the machines",
+    "AWS Global Accelerator, which places AWS compute in the plant for the lowest possible latency",
+    "Amazon Route 53 Resolver, which runs AWS services on premises for local name resolution and processing"],
   a: [0],
   e: "**AWS Outposts** extends AWS infrastructure and services to on-premises sites for low-latency local processing with Regional integration.",
   w: [
-    "Delivers AWS infrastructure on premises.",
-    "CloudFront is a CDN.",
-    "Global Accelerator improves global network routing.",
-    "Route 53 is DNS."]
+    "Outposts delivers AWS infrastructure and services on premises with Regional integration.",
+    "CloudFront is a CDN and does not run AWS services on premises.",
+    "Global Accelerator improves network routing and does not place compute on premises.",
+    "Route 53 Resolver handles DNS, not on-premises compute."]
 }
 );

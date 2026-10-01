@@ -113,10 +113,10 @@
   sc: "A compliance team wants an agent whose every reasoning and tool-calling step is observable, retryable and bounded, with an explicit audit of each iteration. They prefer to implement the reason-act-observe loop themselves using AWS orchestration.",
   q: "Which design is MOST appropriate?",
   o: [
-    "A Step Functions state machine: a Task state invokes the model, a Choice state checks for a tool request, a Task runs the tool, and the loop returns the observation",
-    "A single Lambda function that loops until the model stops requesting tools, with no step limit or per-step logging",
-    "An SQS queue that stores the prompts and a consumer that calls the model once for each message",
-    "An S3 bucket notification that invokes a function each time the model writes a new object to the bucket"],
+    "A Step Functions state machine that invokes the model, uses a Choice state to detect a tool request, runs the tool in a Task, and loops with the observation",
+    "A single Lambda function that loops until the model stops requesting tools, with no step limit and no per-step logging of what happened",
+    "An SQS queue that stores the prompts, with a consumer that calls the model once for each message and returns whatever it says",
+    "An S3 bucket notification that invokes a function each time the model writes a new object into the bucket for the workflow"],
   a: [0],
   e: "Implementing **ReAct in Step Functions** makes each step an explicit, logged, retryable state with built-in timeouts and iteration control.",
   w: [
@@ -131,10 +131,10 @@
   sc: "During testing, an agent repeatedly calls the same search tool with slightly different queries, never reaching a final answer, and consumes large amounts of tokens before the workflow times out.",
   q: "Which control BEST prevents this behavior in production?",
   o: [
-    "Add a stopping condition in the Step Functions workflow: an iteration counter checked by a Choice state, a token budget, and state timeouts that route to a fallback response",
-    "Increase the Lambda timeout so that the agent has more time to finish before the function is stopped",
-    "Switch to a larger model, which will reason well enough to avoid repeating searches on its own",
-    "Add \"do not loop\" to the system prompt so that the model stops calling the same tool repeatedly"],
+    "Add a stopping condition in Step Functions: an iteration counter in a Choice state, a token budget, and timeouts that route to a fallback",
+    "Increase the Lambda timeout so that the agent has more time to finish its research before the function is stopped by the service",
+    "Switch to a larger model, which will reason well enough to avoid repeating the same searches on its own in most requests",
+    "Add \"do not loop\" to the system prompt so that the model stops calling the same tool repeatedly with slightly different queries"],
   a: [0],
   e: "**Safeguarded workflows** bound autonomy with an **iteration cap**, a token/cost budget and **timeouts**, then fall back gracefully.",
   w: [
@@ -406,10 +406,10 @@
   sc: "An agent must call a third-party SaaS API on behalf of each signed-in user. Each user must authorize access individually, and the company does not want to hard-code or share API keys inside the agent.",
   q: "Which capability is designed for this?",
   o: [
-    "Amazon Bedrock AgentCore Identity, which manages inbound authentication and securely obtains and stores outbound OAuth tokens for agents acting on behalf of users",
-    "Embed one shared API key in the system prompt so that every agent request to the SaaS API succeeds",
-    "Store each user's password in the conversation history so that the agent can sign in on their behalf",
-    "Make the SaaS API public so that no credentials are needed from any of the agents"],
+    "AgentCore Identity, which handles inbound authentication and securely obtains and stores outbound OAuth tokens for agents acting for users",
+    "Embed one shared API key in the system prompt so that every agent request to the SaaS API succeeds for all users alike",
+    "Store each user's password in the conversation history so that the agent can sign in to the SaaS service on their behalf",
+    "Make the SaaS API public, so that no credentials are needed from any of the agents and no authorization step is required"],
   a: [0],
   e: "**AgentCore Identity** handles agent identity and delegated access: authenticate users inbound and manage **credentials/tokens** for outbound calls to third-party services.",
   w: [
@@ -461,10 +461,10 @@
   sc: "An agent tool starts a report-generation job that takes about 20 minutes. The agent currently waits for the tool and times out.",
   q: "Which design BEST integrates the long-running job?",
   o: [
-    "Have the tool start the job asynchronously and return a job ID, then check status with a separate tool or receive a completion callback or event",
-    "Increase the model's temperature so that the agent produces its answer before the report job finishes",
-    "Make the Lambda tool poll internally for the full 20 minutes until the report is complete",
-    "Ask the user to wait without any status mechanism until the agent eventually receives the report"],
+    "Have the tool start the job asynchronously and return a job ID; the agent then polls status with another tool or receives a callback",
+    "Increase the model's temperature so that the agent produces its answer before the report job has finished running",
+    "Make the Lambda tool poll internally for the full 20 minutes until the report is complete and then return the result",
+    "Ask the user to wait without any status mechanism until the agent eventually receives the report from the job"],
   a: [0],
   e: "Long jobs need an **asynchronous pattern**: start, return a handle, then poll or receive a callback/event so the agent stays responsive within timeouts.",
   w: [
