@@ -1,25 +1,65 @@
 <!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Independent AWS Certified Generative AI Developer – Professional (AIP-C01) study guide, scenario practice questions and timed mock exams.">
-<title>AIP-C01 · Generative AI Developer Professional</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23e6a64b'/%3E%3Ctext x='16' y='22' font-size='15' font-weight='800' text-anchor='middle' fill='%23172b3a' font-family='sans-serif'%3EGP%3C/text%3E%3C/svg%3E">
-<link rel="stylesheet" href="css/app.css?v=20261001.1">
-<script defer src="js/blueprint.js?v=20261001.1"></script>
-<script defer src="js/study/domain1.js?v=20261001.1"></script><script defer src="js/study/domain2.js?v=20261001.1"></script><script defer src="js/study/domain3.js?v=20261001.1"></script><script defer src="js/study/domain45.js?v=20261001.1"></script>
-<script defer src="js/services.js?v=20261001.1"></script><script defer src="js/plan.js?v=20261001.1"></script>
-<script defer src="js/data/d1-a.js?v=20261001.1"></script><script defer src="js/data/d1-b.js?v=20261001.1"></script><script defer src="js/data/d1-c.js?v=20261001.1"></script><script defer src="js/data/d2-a.js?v=20261001.1"></script><script defer src="js/data/d2-b.js?v=20261001.1"></script><script defer src="js/data/d2-c.js?v=20261001.1"></script><script defer src="js/data/d3-a.js?v=20261001.1"></script><script defer src="js/data/d3-b.js?v=20261001.1"></script><script defer src="js/data/d4-a.js?v=20261001.1"></script><script defer src="js/data/d5-a.js?v=20261001.1"></script>
-<script defer src="js/exam-engine.js?v=20261001.1"></script><script defer src="js/app.js?v=20261001.1"></script>
-</head>
-<body>
-<header class="topbar"><a href="#/" id="home" aria-label="Dashboard"><span class="brand-icon">GP</span><span>GenAI Pro<small>AWS AIP-C01 · Study &amp; Practice</small></span></a>
-<nav class="topnav" aria-label="Main"><a href="#/study">Study</a><a href="#/plan">Plan</a><a href="#/rapid">Rapid review</a><a href="#/services">Services</a></nav>
-<div id="session-label"></div><div id="timer" role="timer" aria-label="Time remaining"></div></header>
-<main id="main" tabindex="-1"></main>
-<div id="announcer" class="sr-only" role="status" aria-live="polite"></div>
-<dialog id="confirm-dialog"><h2>Submit this attempt?</h2><p id="confirm-copy"></p><div class="actions"><button id="cancel-submit" class="secondary">Keep working</button><button id="confirm-submit">Submit attempt</button></div></dialog>
-<noscript>This study app requires JavaScript.</noscript>
-<footer class="site-footer">Independent study material. Not affiliated with or endorsed by AWS or Pearson VUE. No actual or predicted exam questions.<br>Practice results are not an AWS scaled score or a guarantee of passing. Blueprint source: official AIP-C01 exam guide (2026).</footer>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Five full-length AIP-C01 practice exams. 375 scenario questions, timed and learning modes, visual explanations and AWS documentation references."
+    />
+    <meta name="theme-color" content="#102c38" />
+    <title>GenAI Pro · Five AIP-C01 mock exams</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23102c38'/%3E%3Cpath d='M8 21L16 9l8 12M12 18h8' fill='none' stroke='%2387e1c3' stroke-width='3'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="css/app.css?v=20261003.2" />
+    <script defer src="js/blueprint.js?v=20261003.2"></script>
+    <script defer src="js/data/mock-bank.js?v=20261003.2"></script>
+    <script defer src="js/study/guides.js?v=20261003.2"></script>
+    <script defer src="js/exam-engine.js?v=20261003.2"></script>
+    <script defer src="js/app.js?v=20261003.2"></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="topbar">
+      <a href="#/" class="brand" aria-label="GenAI Pro mock exams"
+        ><span class="brand-mark" aria-hidden="true">G<span>↗</span></span
+        ><span>GenAI Pro<small>AIP-C01 EXAM PRACTICE</small></span></a
+      >
+      <div class="session-info">
+        <span id="session-label"></span
+        ><span id="timer" role="timer" aria-label="Time remaining"></span>
+      </div>
+      <a class="home-link" href="#/"
+        >All exams <span aria-hidden="true">↗</span></a
+      >
+    </header>
+    <main id="main" tabindex="-1"></main>
+    <div id="announcer" class="sr-only" role="status" aria-live="polite"></div>
+    <dialog id="confirm-dialog" aria-labelledby="confirm-title">
+      <h2 id="confirm-title">Submit this exam?</h2>
+      <p id="confirm-copy"></p>
+      <div class="actions">
+        <button id="cancel-submit" class="secondary">Keep working</button
+        ><button id="confirm-submit">Submit exam</button>
+      </div>
+    </dialog>
+    <noscript
+      >Enable JavaScript to use the mock exams. This app stores progress locally
+      in your browser.</noscript
+    >
+    <footer>
+      Independent AIP-C01 practice. Not affiliated with or endorsed by AWS.
+      Original practice scenarios; no real exam questions.<br />Practice
+      accuracy is not an AWS scaled score or a guarantee of passing. Progress
+      stays in this browser.
+      <a
+        href="https://docs.aws.amazon.com/aws-certification/latest/ai-professional-01/ai-professional-01.html"
+        target="_blank"
+        rel="noopener"
+        >Official exam guide ↗</a
+      >
+    </footer>
+  </body>
 </html>

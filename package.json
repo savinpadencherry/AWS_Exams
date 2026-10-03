@@ -1,0 +1,14 @@
+{
+  "name": "aip-c01-mock-exams",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Five AIP-C01 practice exams with contextual learning and console exercises",
+  "scripts": {
+    "test": "node --test tests/exam.test.cjs",
+    "test:browser": "node tests/browser.test.cjs",
+    "coverage": "node scripts/coverage.cjs"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1"
+  }
+}

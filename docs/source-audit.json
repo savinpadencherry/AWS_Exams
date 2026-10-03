@@ -1,0 +1,1028 @@
+[
+  {
+    "key": "access-analyzer",
+    "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html",
+    "finalUrl": "https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html",
+    "title": "Using AWS Identity and Access Management Access Analyzer - AWS Identity and Access Management",
+    "status": 200,
+    "textLength": 13719,
+    "suspect": false
+  },
+  {
+    "key": "adapters",
+    "url": "https://docs.aws.amazon.com/sagemaker/latest/dg/realtime-endpoints-adapt.html",
+    "finalUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/realtime-endpoints-adapt.html",
+    "title": "Fine-tune models with adapter inference components - Amazon SageMaker AI",
+    "status": 200,
+    "textLength": 5807,
+    "suspect": false
+  },
+  {
+    "key": "agent-actions",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/agents-action-create.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/agents-action-create.html",
+    "title": "Use action groups to define actions for your agent to perform - Amazon Bedrock",
+    "status": 200,
+    "textLength": 2295,
+    "suspect": false
+  },
+  {
+    "key": "agent-confirm",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/agents-userconfirmation.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/agents-userconfirmation.html",
+    "title": "Get user confirmation before invoking action group function - Amazon Bedrock",
+    "status": 200,
+    "textLength": 4610,
+    "suspect": false
+  },
+  {
+    "key": "agent-return",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/agents-returncontrol.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/agents-returncontrol.html",
+    "title": "Return control to the agent developer by sending elicited information in an InvokeAgent response - Amazon Bedrock",
+    "status": 200,
+    "textLength": 10594,
+    "suspect": false
+  },
+  {
+    "key": "agent-squad",
+    "url": "https://github.com/2FastLabs/agent-squad",
+    "finalUrl": "https://github.com/2FastLabs/agent-squad",
+    "title": "GitHub - 2FastLabs/agent-squad: Flexible and powerful framework for managing multiple AI agents and handling complex conversations \u00b7 GitHub",
+    "status": 200,
+    "textLength": 14660,
+    "suspect": false
+  },
+  {
+    "key": "agent-trace",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html",
+    "title": "Track agent's step-by-step reasoning process using trace - Amazon Bedrock",
+    "status": 200,
+    "textLength": 21873,
+    "suspect": false
+  },
+  {
+    "key": "agentcore",
+    "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html",
+    "title": "Overview - Amazon Bedrock AgentCore",
+    "status": 200,
+    "textLength": 10041,
+    "suspect": false
+  },
+  {
+    "key": "agentcore-identity",
+    "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/identity.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/identity.html",
+    "title": "Provide identity and credential management for agent applications with Amazon Bedrock AgentCore Identity - Amazon Bedrock AgentCore",
+    "status": 200,
+    "textLength": 2421,
+    "suspect": false
+  },
+  {
+    "key": "agentcore-memory",
+    "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory.html",
+    "title": "Add memory to your Amazon Bedrock AgentCore agent - Amazon Bedrock AgentCore",
+    "status": 200,
+    "textLength": 4468,
+    "suspect": false
+  },
+  {
+    "key": "amplify",
+    "url": "https://docs.amplify.aws/react/ai/",
+    "finalUrl": "https://docs.amplify.aws/react/ai/",
+    "title": "AI kit - AWS Amplify Gen 2 Documentation",
+    "status": 200,
+    "textLength": 5517,
+    "suspect": false
+  },
+  {
+    "key": "anomaly",
+    "url": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Anomaly_Detection.html",
+    "finalUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Anomaly_Detection.html",
+    "title": "Using CloudWatch anomaly detection - Amazon CloudWatch",
+    "status": 200,
+    "textLength": 7409,
+    "suspect": false
+  },
+  {
+    "key": "api-validation",
+    "url": "https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html",
+    "finalUrl": "https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html",
+    "title": "Request validation for REST APIs in API Gateway - Amazon API Gateway",
+    "status": 200,
+    "textLength": 3238,
+    "suspect": false
+  },
+  {
+    "key": "appconfig",
+    "url": "https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-deploying.html",
+    "finalUrl": "https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-deploying.html",
+    "title": "Deploying a configuration - AWS AppConfig",
+    "status": 200,
+    "textLength": 10327,
+    "suspect": false
+  },
+  {
+    "key": "async-inference",
+    "url": "https://docs.aws.amazon.com/sagemaker/latest/dg/async-inference.html",
+    "finalUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/async-inference.html",
+    "title": "Asynchronous inference - Amazon SageMaker AI",
+    "status": 200,
+    "textLength": 3188,
+    "suspect": false
+  },
+  {
+    "key": "athena",
+    "url": "https://docs.aws.amazon.com/athena/latest/ug/what-is.html",
+    "finalUrl": "https://docs.aws.amazon.com/athena/latest/ug/what-is.html",
+    "title": "What is Amazon Athena? - Amazon Athena",
+    "status": 200,
+    "textLength": 2078,
+    "suspect": false
+  },
+  {
+    "key": "batch",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference.html",
+    "title": "Process multiple prompts with batch inference - Amazon Bedrock",
+    "status": 200,
+    "textLength": 2620,
+    "suspect": false
+  },
+  {
+    "key": "cache",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-caching.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-caching.html",
+    "title": "Prompt caching for faster model inference - Amazon Bedrock",
+    "status": 200,
+    "textLength": 33312,
+    "suspect": false
+  },
+  {
+    "key": "callback",
+    "url": "https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html",
+    "finalUrl": "https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html",
+    "title": "Discover service integration patterns in Step Functions - AWS Step Functions",
+    "status": 200,
+    "textLength": 16804,
+    "suspect": false
+  },
+  {
+    "key": "cards",
+    "url": "https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html",
+    "finalUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html",
+    "title": "Amazon SageMaker Model Cards - Amazon SageMaker AI",
+    "status": 200,
+    "textLength": 19645,
+    "suspect": false
+  },
+  {
+    "key": "chunk",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/kb-chunking.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/kb-chunking.html",
+    "title": "How content chunking works for knowledge bases - Amazon Bedrock",
+    "status": 200,
+    "textLength": 7174,
+    "suspect": false
+  },
+  {
+    "key": "cloudtrail",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/logging-using-cloudtrail.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/logging-using-cloudtrail.html",
+    "title": "Monitor Amazon Bedrock API calls using CloudTrail - Amazon Bedrock",
+    "status": 200,
+    "textLength": 14829,
+    "suspect": false
+  },
+  {
+    "key": "cloudwatch-metrics",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/monitoring-runtime-metrics.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/monitoring-runtime-metrics.html",
+    "title": "Monitor bedrock-runtime inference using CloudWatch metrics - Amazon Bedrock",
+    "status": 200,
+    "textLength": 5336,
+    "suspect": false
+  },
+  {
+    "key": "codepipeline",
+    "url": "https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html",
+    "finalUrl": "https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html",
+    "title": "What is AWS CodePipeline? - AWS CodePipeline",
+    "status": 200,
+    "textLength": 1551,
+    "suspect": false
+  },
+  {
+    "key": "cognito",
+    "url": "https://docs.aws.amazon.com/cognito/latest/developerguide/identity-pools.html",
+    "finalUrl": "https://docs.aws.amazon.com/cognito/latest/developerguide/identity-pools.html",
+    "title": "Identity pools console overview - Amazon Cognito",
+    "status": 200,
+    "textLength": 22775,
+    "suspect": false
+  },
+  {
+    "key": "comprehend",
+    "url": "https://docs.aws.amazon.com/comprehend/latest/dg/how-it-works.html",
+    "finalUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/how-it-works.html",
+    "title": "How it works - Amazon Comprehend",
+    "status": 200,
+    "textLength": 1875,
+    "suspect": false
+  },
+  {
+    "key": "connectors",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-ds.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-ds.html",
+    "title": "Prerequisites for your Amazon Bedrock knowledge base data - Amazon Bedrock",
+    "status": 200,
+    "textLength": 2635,
+    "suspect": false
+  },
+  {
+    "key": "converse",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference.html",
+    "title": "Inference using Converse API - Amazon Bedrock",
+    "status": 200,
+    "textLength": 48058,
+    "suspect": false
+  },
+  {
+    "key": "cost-anomaly",
+    "url": "https://docs.aws.amazon.com/cost-management/latest/userguide/manage-ad.html",
+    "finalUrl": "https://docs.aws.amazon.com/cost-management/latest/userguide/manage-ad.html",
+    "title": "Detecting unusual spend with AWS Cost Anomaly Detection - AWS Cost Management",
+    "status": 200,
+    "textLength": 4121,
+    "suspect": false
+  },
+  {
+    "key": "cross-region",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html",
+    "title": "Route model inference requests across AWS Regions with cross-Region inference - Amazon Bedrock",
+    "status": 200,
+    "textLength": 4664,
+    "suspect": false
+  },
+  {
+    "key": "custom-chunk",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/kb-custom-transformation.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/kb-custom-transformation.html",
+    "title": "Use a custom transformation Lambda function to define how your data is ingested - Amazon Bedrock",
+    "status": 200,
+    "textLength": 4831,
+    "suspect": false
+  },
+  {
+    "key": "custom-container",
+    "url": "https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html",
+    "finalUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html",
+    "title": "Custom Inference Code with Hosting Services - Amazon SageMaker AI",
+    "status": 200,
+    "textLength": 29082,
+    "suspect": false
+  },
+  {
+    "key": "dashboards",
+    "url": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html",
+    "finalUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html",
+    "title": "Using Amazon CloudWatch dashboards - Amazon CloudWatch",
+    "status": 200,
+    "textLength": 9769,
+    "suspect": false
+  },
+  {
+    "key": "data-automation",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda.html",
+    "title": "Transform unstructured data into meaningful insights using Amazon Bedrock Data Automation - Amazon Bedrock",
+    "status": 200,
+    "textLength": 3356,
+    "suspect": false
+  },
+  {
+    "key": "delete-api",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_DeleteKnowledgeBaseDocuments.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_DeleteKnowledgeBaseDocuments.html",
+    "title": "DeleteKnowledgeBaseDocuments - Amazon Bedrock",
+    "status": 200,
+    "textLength": 4605,
+    "suspect": false
+  },
+  {
+    "key": "deploy-guardrails",
+    "url": "https://docs.aws.amazon.com/sagemaker/latest/dg/deployment-guardrails.html",
+    "finalUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/deployment-guardrails.html",
+    "title": "Deployment guardrails for updating models in production - Amazon SageMaker AI",
+    "status": 200,
+    "textLength": 5692,
+    "suspect": false
+  },
+  {
+    "key": "distill",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-distillation.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-distillation.html",
+    "title": "Customize a model with distillation in Amazon Bedrock - Amazon Bedrock",
+    "status": 200,
+    "textLength": 7957,
+    "suspect": false
+  },
+  {
+    "key": "domain1",
+    "url": "https://docs.aws.amazon.com/aws-certification/latest/ai-professional-01/ai-professional-01-domain1.html",
+    "finalUrl": "https://docs.aws.amazon.com/aws-certification/latest/ai-professional-01/ai-professional-01-domain1.html",
+    "title": "Content Domain 1: Foundation Model Integration, Data Management, and Compliance - AWS Certified Generative AI Developer - Professional",
+    "status": 200,
+    "textLength": 9866,
+    "suspect": false
+  },
+  {
+    "key": "domain2",
+    "url": "https://docs.aws.amazon.com/aws-certification/latest/ai-professional-01/ai-professional-01-domain2.html",
+    "finalUrl": "https://docs.aws.amazon.com/aws-certification/latest/ai-professional-01/ai-professional-01-domain2.html",
+    "title": "Content Domain 2: Implementation and Integration - AWS Certified Generative AI Developer - Professional",
+    "status": 200,
+    "textLength": 8816,
+    "suspect": false
+  },
+  {
+    "key": "domain4",
+    "url": "https://docs.aws.amazon.com/aws-certification/latest/ai-professional-01/ai-professional-01-domain4.html",
+    "finalUrl": "https://docs.aws.amazon.com/aws-certification/latest/ai-professional-01/ai-professional-01-domain4.html",
+    "title": "Content Domain 4: Operational Efficiency and Optimization for GenAI Applications - AWS Certified Generative AI Developer - Professional",
+    "status": 200,
+    "textLength": 6251,
+    "suspect": false
+  },
+  {
+    "key": "domain5",
+    "url": "https://docs.aws.amazon.com/aws-certification/latest/ai-professional-01/ai-professional-01-domain5.html",
+    "finalUrl": "https://docs.aws.amazon.com/aws-certification/latest/ai-professional-01/ai-professional-01-domain5.html",
+    "title": "Content Domain 5: Testing, Validation, and Troubleshooting - AWS Certified Generative AI Developer - Professional",
+    "status": 200,
+    "textLength": 5081,
+    "suspect": false
+  },
+  {
+    "key": "embedding",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/titan-embedding-models.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/titan-embedding-models.html",
+    "title": "Amazon Titan Text Embeddings models - Amazon Bedrock",
+    "status": 200,
+    "textLength": 4595,
+    "suspect": false
+  },
+  {
+    "key": "eval",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/evaluation.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/evaluation.html",
+    "title": "Evaluate the performance of Amazon Bedrock resources - Amazon Bedrock",
+    "status": 200,
+    "textLength": 4350,
+    "suspect": false
+  },
+  {
+    "key": "flow",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/flows.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/flows.html",
+    "title": "Build an end-to-end generative AI workflow with Amazon Bedrock Flows - Amazon Bedrock",
+    "status": 200,
+    "textLength": 5904,
+    "suspect": false
+  },
+  {
+    "key": "genai-lens",
+    "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/generative-ai-lens.html",
+    "finalUrl": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/generative-ai-lens.html",
+    "title": "Generative AI Lens - AWS Well-Architected Framework - Generative AI Lens",
+    "status": 200,
+    "textLength": 7023,
+    "suspect": false
+  },
+  {
+    "key": "glue",
+    "url": "https://docs.aws.amazon.com/glue/latest/dg/glue-data-quality.html",
+    "finalUrl": "https://docs.aws.amazon.com/glue/latest/dg/glue-data-quality.html",
+    "title": "AWS Glue Data Quality - AWS Glue",
+    "status": 200,
+    "textLength": 14754,
+    "suspect": false
+  },
+  {
+    "key": "gpu",
+    "url": "https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-container-docs.html",
+    "finalUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-container-docs.html",
+    "title": "The large model inference (LMI) container documentation - Amazon SageMaker AI",
+    "status": 200,
+    "textLength": 1982,
+    "suspect": false
+  },
+  {
+    "key": "graph",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-build-graphs.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-build-graphs.html",
+    "title": "Build a knowledge base with Amazon Neptune Analytics graphs - Amazon Bedrock",
+    "status": 200,
+    "textLength": 6079,
+    "suspect": false
+  },
+  {
+    "key": "grounding",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-contextual-grounding-check.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-contextual-grounding-check.html",
+    "title": "Use contextual grounding check to filter hallucinations in responses - Amazon Bedrock",
+    "status": 200,
+    "textLength": 18517,
+    "suspect": false
+  },
+  {
+    "key": "groundtruth",
+    "url": "https://docs.aws.amazon.com/sagemaker/latest/dg/sms.html",
+    "finalUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/sms.html",
+    "title": "Training data labeling using humans with Amazon SageMaker Ground Truth - Amazon SageMaker AI",
+    "status": 200,
+    "textLength": 5726,
+    "suspect": false
+  },
+  {
+    "key": "guardrail-enforce",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-permissions-id.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-permissions-id.html",
+    "title": "Enforce the use of specific guardrails in model inference requests - Amazon Bedrock",
+    "status": 200,
+    "textLength": 11653,
+    "suspect": false
+  },
+  {
+    "key": "guardrail-images",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-content-filters.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-content-filters.html",
+    "title": "Block harmful words and conversations with content filters - Amazon Bedrock",
+    "status": 200,
+    "textLength": 11417,
+    "suspect": false
+  },
+  {
+    "key": "guardrails",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html",
+    "title": "Detect and filter harmful content by using Amazon Bedrock Guardrails - Amazon Bedrock",
+    "status": 200,
+    "textLength": 7211,
+    "suspect": false
+  },
+  {
+    "key": "hybrid",
+    "url": "https://docs.opensearch.org/latest/vector-search/ai-search/hybrid-search/index/",
+    "finalUrl": "https://docs.opensearch.org/latest/vector-search/ai-search/hybrid-search/index/",
+    "title": "Hybrid search | OpenSearch Documentation",
+    "status": 200,
+    "textLength": 40586,
+    "suspect": false
+  },
+  {
+    "key": "iam",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/security_iam_id-based-policy-examples.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/security_iam_id-based-policy-examples.html",
+    "title": "Identity-based policy examples for Amazon Bedrock - Amazon Bedrock",
+    "status": 200,
+    "textLength": 11286,
+    "suspect": false
+  },
+  {
+    "key": "import",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html",
+    "title": "Use Custom model import to import a customized open-source model into Amazon Bedrock - Amazon Bedrock",
+    "status": 200,
+    "textLength": 7999,
+    "suspect": false
+  },
+  {
+    "key": "inference-profile",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles.html",
+    "title": "Set up a model invocation resource using inference profiles - Amazon Bedrock",
+    "status": 200,
+    "textLength": 5227,
+    "suspect": false
+  },
+  {
+    "key": "ingest",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/kb-direct-ingestion.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/kb-direct-ingestion.html",
+    "title": "Ingest changes directly into a knowledge base - Amazon Bedrock",
+    "status": 200,
+    "textLength": 4762,
+    "suspect": false
+  },
+  {
+    "key": "intelligent-routing",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-routing.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-routing.html",
+    "title": "Understanding intelligent prompt routing in Amazon Bedrock - Amazon Bedrock",
+    "status": 200,
+    "textLength": 13031,
+    "suspect": false
+  },
+  {
+    "key": "k-nn",
+    "url": "https://docs.aws.amazon.com/opensearch-service/latest/developerguide/knn.html",
+    "finalUrl": "https://docs.aws.amazon.com/opensearch-service/latest/developerguide/knn.html",
+    "title": "k-Nearest Neighbor (k-NN) search in Amazon OpenSearch Service - Amazon OpenSearch Service",
+    "status": 200,
+    "textLength": 6095,
+    "suspect": false
+  },
+  {
+    "key": "kb",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html",
+    "title": "Retrieve data and generate AI responses with Amazon Bedrock Knowledge Bases - Amazon Bedrock",
+    "status": 200,
+    "textLength": 6055,
+    "suspect": false
+  },
+  {
+    "key": "kb-api",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_IngestKnowledgeBaseDocuments.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_IngestKnowledgeBaseDocuments.html",
+    "title": "IngestKnowledgeBaseDocuments - Amazon Bedrock",
+    "status": 200,
+    "textLength": 6001,
+    "suspect": false
+  },
+  {
+    "key": "kiro",
+    "url": "https://kiro.dev/docs/",
+    "finalUrl": "https://kiro.dev/docs/",
+    "title": "Docs - Kiro",
+    "status": 200,
+    "textLength": 5275,
+    "suspect": false
+  },
+  {
+    "key": "kms",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/data-encryption.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/data-encryption.html",
+    "title": "Data encryption - Amazon Bedrock",
+    "status": 200,
+    "textLength": 3022,
+    "suspect": false
+  },
+  {
+    "key": "knowledge-eval",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/evaluation-kb.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/evaluation-kb.html",
+    "title": "Evaluate the performance of RAG sources using Amazon Bedrock evaluations - Amazon Bedrock",
+    "status": 200,
+    "textLength": 6001,
+    "suspect": false
+  },
+  {
+    "key": "lake",
+    "url": "https://docs.aws.amazon.com/lake-formation/latest/dg/data-filtering.html",
+    "finalUrl": "https://docs.aws.amazon.com/lake-formation/latest/dg/data-filtering.html",
+    "title": "Data filtering and cell-level security in Lake Formation - AWS Lake Formation",
+    "status": 200,
+    "textLength": 9488,
+    "suspect": false
+  },
+  {
+    "key": "latency",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/latency-optimized-inference.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/latency-optimized-inference.html",
+    "title": "Optimize model inference for latency - Amazon Bedrock",
+    "status": 200,
+    "textLength": 3524,
+    "suspect": false
+  },
+  {
+    "key": "lifecycle",
+    "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-rules.html",
+    "finalUrl": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-rules.html",
+    "title": "Lifecycle configuration elements - Amazon Simple Storage Service",
+    "status": 200,
+    "textLength": 29781,
+    "suspect": false
+  },
+  {
+    "key": "loRA",
+    "url": "https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-foundation-models-fine-tuning.html",
+    "finalUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-foundation-models-fine-tuning.html",
+    "title": "Foundation models and hyperparameters for fine-tuning - Amazon SageMaker AI",
+    "status": 200,
+    "textLength": 7651,
+    "suspect": false
+  },
+  {
+    "key": "log-insights",
+    "url": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html",
+    "finalUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html",
+    "title": "Analyzing log data with CloudWatch Logs Insights - Amazon CloudWatch Logs",
+    "status": 200,
+    "textLength": 8368,
+    "suspect": false
+  },
+  {
+    "key": "logging",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html",
+    "title": "Monitor model invocation using CloudWatch Logs and Amazon S3 - Amazon Bedrock",
+    "status": 200,
+    "textLength": 12404,
+    "suspect": false
+  },
+  {
+    "key": "logs-protection",
+    "url": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html",
+    "finalUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html",
+    "title": "Help protect sensitive log data with masking - Amazon CloudWatch Logs",
+    "status": 200,
+    "textLength": 6656,
+    "suspect": false
+  },
+  {
+    "key": "macie",
+    "url": "https://docs.aws.amazon.com/macie/latest/user/what-is-macie.html",
+    "finalUrl": "https://docs.aws.amazon.com/macie/latest/user/what-is-macie.html",
+    "title": "What is Amazon Macie? - Amazon Macie",
+    "status": 200,
+    "textLength": 16506,
+    "suspect": false
+  },
+  {
+    "key": "mcp",
+    "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway.html",
+    "title": "Amazon Bedrock AgentCore Gateway: A secure AI gateway for agents, tools, and models - Amazon Bedrock AgentCore",
+    "status": 200,
+    "textLength": 5842,
+    "suspect": false
+  },
+  {
+    "key": "model-registry",
+    "url": "https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry.html",
+    "finalUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry.html",
+    "title": "Model Registration Deployment with Model Registry - Amazon SageMaker AI",
+    "status": 200,
+    "textLength": 2665,
+    "suspect": false
+  },
+  {
+    "key": "multi-agent",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/agents-multi-agent-collaboration.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/agents-multi-agent-collaboration.html",
+    "title": "Use multi-agent collaboration with Amazon Bedrock Agents - Amazon Bedrock",
+    "status": 200,
+    "textLength": 4031,
+    "suspect": false
+  },
+  {
+    "key": "multimodal",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/titan-multiemb-models.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/titan-multiemb-models.html",
+    "title": "Amazon Titan Multimodal Embeddings G1 model - Amazon Bedrock",
+    "status": 200,
+    "textLength": 5081,
+    "suspect": false
+  },
+  {
+    "key": "neural",
+    "url": "https://docs.opensearch.org/latest/query-dsl/specialized/neural/",
+    "finalUrl": "https://docs.opensearch.org/latest/query-dsl/specialized/neural/",
+    "title": "Neural query | OpenSearch Documentation",
+    "status": 200,
+    "textLength": 36393,
+    "suspect": false
+  },
+  {
+    "key": "object-lock",
+    "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html",
+    "finalUrl": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html",
+    "title": "Locking objects with Object Lock - Amazon Simple Storage Service",
+    "status": 200,
+    "textLength": 17318,
+    "suspect": false
+  },
+  {
+    "key": "oidc",
+    "url": "https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html",
+    "finalUrl": "https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html",
+    "title": "AssumeRoleWithWebIdentity - AWS Security Token Service",
+    "status": 200,
+    "textLength": 23755,
+    "suspect": false
+  },
+  {
+    "key": "openapi",
+    "url": "https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html",
+    "finalUrl": "https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html",
+    "title": "Develop REST APIs using OpenAPI in API Gateway - Amazon API Gateway",
+    "status": 200,
+    "textLength": 1853,
+    "suspect": false
+  },
+  {
+    "key": "outposts",
+    "url": "https://docs.aws.amazon.com/outposts/latest/userguide/what-is-outposts.html",
+    "finalUrl": "https://docs.aws.amazon.com/outposts/latest/userguide/what-is-outposts.html",
+    "title": "What is AWS Outposts? - AWS Outposts",
+    "status": 200,
+    "textLength": 11952,
+    "suspect": false
+  },
+  {
+    "key": "parameters",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/inference-parameters.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/inference-parameters.html",
+    "title": "Influence response generation with inference parameters - Amazon Bedrock",
+    "status": 200,
+    "textLength": 6046,
+    "suspect": false
+  },
+  {
+    "key": "partial",
+    "url": "https://docs.aws.amazon.com/lambda/latest/dg/services-sqs-errorhandling.html",
+    "finalUrl": "https://docs.aws.amazon.com/lambda/latest/dg/services-sqs-errorhandling.html",
+    "title": "Handling errors for an SQS event source in Lambda - AWS Lambda",
+    "status": 200,
+    "textLength": 18676,
+    "suspect": false
+  },
+  {
+    "key": "pgvector",
+    "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.VectorDB.html",
+    "finalUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.VectorDB.html",
+    "title": "Using Aurora PostgreSQL as a Knowledge Base for Amazon Bedrock - Amazon Aurora",
+    "status": 200,
+    "textLength": 11150,
+    "suspect": false
+  },
+  {
+    "key": "pii",
+    "url": "https://docs.aws.amazon.com/comprehend/latest/dg/how-pii.html",
+    "finalUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/how-pii.html",
+    "title": "Detecting PII entities - Amazon Comprehend",
+    "status": 200,
+    "textLength": 11486,
+    "suspect": false
+  },
+  {
+    "key": "privacy",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html",
+    "title": "Data protection - Amazon Bedrock",
+    "status": 200,
+    "textLength": 4066,
+    "suspect": false
+  },
+  {
+    "key": "private",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/vpc-interface-endpoints.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/vpc-interface-endpoints.html",
+    "title": "Use interface VPC endpoints (AWS PrivateLink) to create a private connection between your VPC and Amazon Bedrock - Amazon Bedrock",
+    "status": 200,
+    "textLength": 7578,
+    "suspect": false
+  },
+  {
+    "key": "processing",
+    "url": "https://docs.aws.amazon.com/sagemaker/latest/dg/processing-job.html",
+    "finalUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/processing-job.html",
+    "title": "Data transformation workloads with SageMaker Processing - Amazon SageMaker AI",
+    "status": 200,
+    "textLength": 5206,
+    "suspect": false
+  },
+  {
+    "key": "prompt",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management.html",
+    "title": "Construct and store reusable prompts with Prompt management in Amazon Bedrock - Amazon Bedrock",
+    "status": 200,
+    "textLength": 3580,
+    "suspect": false
+  },
+  {
+    "key": "prompt-version",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-deploy.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-deploy.html",
+    "title": "Deploy a prompt to your application using versions in Prompt management - Amazon Bedrock",
+    "status": 200,
+    "textLength": 1804,
+    "suspect": false
+  },
+  {
+    "key": "provision",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html",
+    "title": "Increase model invocation capacity with Provisioned Throughput in Amazon Bedrock - Amazon Bedrock",
+    "status": 200,
+    "textLength": 3672,
+    "suspect": false
+  },
+  {
+    "key": "q-business",
+    "url": "https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/what-is.html",
+    "finalUrl": "https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/what-is.html",
+    "title": "What is Amazon Q Business? - Amazon Q Business",
+    "status": 200,
+    "textLength": 8887,
+    "suspect": false
+  },
+  {
+    "key": "q-developer",
+    "url": "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/what-is.html",
+    "finalUrl": "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/what-is.html",
+    "title": "What is Amazon Q Developer? - Amazon Q Developer",
+    "status": 200,
+    "textLength": 4150,
+    "suspect": false
+  },
+  {
+    "key": "quotas",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/quotas.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/quotas.html",
+    "title": "Quotas for Amazon Bedrock - Amazon Bedrock",
+    "status": 200,
+    "textLength": 2230,
+    "suspect": false
+  },
+  {
+    "key": "reasoning",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-automated-reasoning-checks.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-automated-reasoning-checks.html",
+    "title": "What are Automated Reasoning checks in Amazon Bedrock Guardrails? - Amazon Bedrock",
+    "status": 200,
+    "textLength": 14087,
+    "suspect": false
+  },
+  {
+    "key": "retrieve",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html",
+    "title": "Configure and customize queries and response generation - Amazon Bedrock",
+    "status": 200,
+    "textLength": 35776,
+    "suspect": false
+  },
+  {
+    "key": "s3-vectors",
+    "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors.html",
+    "finalUrl": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors.html",
+    "title": "Working with S3 Vectors and vector buckets - Amazon Simple Storage Service",
+    "status": 200,
+    "textLength": 9143,
+    "suspect": false
+  },
+  {
+    "key": "scp",
+    "url": "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html",
+    "finalUrl": "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html",
+    "title": "Service control policies (SCPs) - AWS Organizations",
+    "status": 200,
+    "textLength": 10676,
+    "suspect": false
+  },
+  {
+    "key": "secrets",
+    "url": "https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html",
+    "finalUrl": "https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html",
+    "title": "Rotate AWS Secrets Manager secrets - AWS Secrets Manager",
+    "status": 200,
+    "textLength": 1755,
+    "suspect": false
+  },
+  {
+    "key": "sqs",
+    "url": "https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html",
+    "finalUrl": "https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html",
+    "title": "Using Lambda with Amazon SQS - AWS Lambda",
+    "status": 200,
+    "textLength": 14646,
+    "suspect": false
+  },
+  {
+    "key": "strands",
+    "url": "https://github.com/strands-agents/harness-sdk",
+    "finalUrl": "https://github.com/strands-agents/harness-sdk",
+    "title": "GitHub - strands-agents/harness-sdk: Build an agent harness and control it end-to-end. Open-source SDK for production AI agents in Python & TypeScript - any model, any cloud. \u00b7 GitHub",
+    "status": 200,
+    "textLength": 10221,
+    "suspect": false
+  },
+  {
+    "key": "stream-guardrail",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-streaming.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-streaming.html",
+    "title": "Configure streaming response behavior to filter content - Amazon Bedrock",
+    "status": 200,
+    "textLength": 2915,
+    "suspect": false
+  },
+  {
+    "key": "streams",
+    "url": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.Lambda.html",
+    "finalUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.Lambda.html",
+    "title": "DynamoDB Streams and AWS Lambda triggers - Amazon DynamoDB",
+    "status": 200,
+    "textLength": 4164,
+    "suspect": false
+  },
+  {
+    "key": "sts",
+    "url": "https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html",
+    "finalUrl": "https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html",
+    "title": "AssumeRole - AWS Security Token Service",
+    "status": 200,
+    "textLength": 25280,
+    "suspect": false
+  },
+  {
+    "key": "sync",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/kb-data-source-sync-ingest.html",
+    "finalUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/kb-data-source-sync-ingest.html",
+    "title": "Sync your data with your Amazon Bedrock knowledge base - Amazon Bedrock",
+    "status": 200,
+    "textLength": 9042,
+    "suspect": false
+  },
+  {
+    "key": "synthetics",
+    "url": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries.html",
+    "finalUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries.html",
+    "title": "Synthetic monitoring (canaries) - Amazon CloudWatch",
+    "status": 200,
+    "textLength": 5181,
+    "suspect": false
+  },
+  {
+    "key": "textract",
+    "url": "https://docs.aws.amazon.com/textract/latest/dg/what-is.html",
+    "finalUrl": "https://docs.aws.amazon.com/textract/latest/dg/what-is.html",
+    "title": "What is Amazon Textract? - Amazon Textract",
+    "status": 200,
+    "textLength": 6843,
+    "suspect": false
+  },
+  {
+    "key": "ttl",
+    "url": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html",
+    "finalUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html",
+    "title": "Using time to live (TTL) in DynamoDB - Amazon DynamoDB",
+    "status": 200,
+    "textLength": 3385,
+    "suspect": false
+  },
+  {
+    "key": "usage-plans",
+    "url": "https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html",
+    "finalUrl": "https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html",
+    "title": "Usage plans and API keys for REST APIs in API Gateway - Amazon API Gateway",
+    "status": 200,
+    "textLength": 4998,
+    "suspect": false
+  },
+  {
+    "key": "waf",
+    "url": "https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-rate-based.html",
+    "finalUrl": "https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-rate-based.html",
+    "title": "Using rate-based rule statements in AWS WAF - AWS WAF, AWS Firewall Manager, AWS Shield Advanced, and AWS Shield network security director",
+    "status": 200,
+    "textLength": 3690,
+    "suspect": false
+  },
+  {
+    "key": "wavelength",
+    "url": "https://docs.aws.amazon.com/wavelength/latest/developerguide/what-is-wavelength.html",
+    "finalUrl": "https://docs.aws.amazon.com/wavelength/latest/developerguide/what-is-wavelength.html",
+    "title": "What is AWS Wavelength? - AWS Wavelength",
+    "status": 200,
+    "textLength": 4544,
+    "suspect": false
+  },
+  {
+    "key": "wrangler",
+    "url": "https://docs.aws.amazon.com/sagemaker/latest/dg/data-wrangler.html",
+    "finalUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/data-wrangler.html",
+    "title": "Prepare ML Data with Amazon SageMaker Data Wrangler - Amazon SageMaker AI",
+    "status": 200,
+    "textLength": 5828,
+    "suspect": false
+  },
+  {
+    "key": "xray",
+    "url": "https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html",
+    "finalUrl": "https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html",
+    "title": "What is AWS X-Ray? - AWS X-Ray",
+    "status": 200,
+    "textLength": 3006,
+    "suspect": false
+  }
+]
