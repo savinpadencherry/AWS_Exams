@@ -1,65 +1,1481 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta
-      name="description"
-      content="Five full-length AIP-C01 practice exams. 375 scenario questions, timed and learning modes, visual explanations and AWS documentation references."
-    />
-    <meta name="theme-color" content="#102c38" />
-    <title>GenAI Pro · Five AIP-C01 mock exams</title>
-    <link
-      rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23102c38'/%3E%3Cpath d='M8 21L16 9l8 12M12 18h8' fill='none' stroke='%2387e1c3' stroke-width='3'/%3E%3C/svg%3E"
-    />
-    <link rel="stylesheet" href="css/app.css?v=20261003.2" />
-    <script defer src="js/blueprint.js?v=20261003.2"></script>
-    <script defer src="js/data/mock-bank.js?v=20261003.2"></script>
-    <script defer src="js/study/guides.js?v=20261003.2"></script>
-    <script defer src="js/exam-engine.js?v=20261003.2"></script>
-    <script defer src="js/app.js?v=20261003.2"></script>
-  </head>
-  <body>
-    <a class="skip" href="#main">Skip to content</a>
-    <header class="topbar">
-      <a href="#/" class="brand" aria-label="GenAI Pro mock exams"
-        ><span class="brand-mark" aria-hidden="true">G<span>↗</span></span
-        ><span>GenAI Pro<small>AIP-C01 EXAM PRACTICE</small></span></a
-      >
-      <div class="session-info">
-        <span id="session-label"></span
-        ><span id="timer" role="timer" aria-label="Time remaining"></span>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>SidelineReel Coach Review</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap">
+<style>
+/* Layout: app bar, game header, five-tab step bar, then one working panel. Two columns where a clip sits beside its controls, one column on phones. */
+:root {
+  --bg: #f2f5f1;
+  --surface: #ffffff;
+  --surface-2: #f6f9f5;
+  --ink: #142019;
+  --muted: #5a6860;
+  --line: #d8e0d9;
+  --accent: #0f6b3f;
+  --accent-ink: #ffffff;
+  --accent-soft: #dff1e6;
+  --warn: #8a5300;
+  --warn-soft: #fcefd2;
+  --warn-strong: #d98a00;
+  --report: #5a3fb3;
+  --report-soft: #ece8fb;
+  --neutral-soft: #e6ebe7;
+  --pitch: #2c8a57;
+  --pitch-dark: #267c4e;
+  --pitch-line: #c9ecd7;
+  --shirt: #fbfdfb;
+  --shirt-num: #142019;
+  --cover: #17472f;
+  --focus: #1f5fbf;
+  --shadow: rgba(20, 32, 25, 0.08);
+  --display: "Barlow Condensed", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --body: "Barlow", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --radius: 14px;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1411;
+    --surface: #161d19;
+    --surface-2: #1b2420;
+    --ink: #e8efe9;
+    --muted: #98a79e;
+    --line: #27322c;
+    --accent: #44c486;
+    --accent-ink: #0b1410;
+    --accent-soft: #143024;
+    --warn: #f2c36b;
+    --warn-soft: #33290f;
+    --warn-strong: #e0a030;
+    --report: #bda8ff;
+    --report-soft: #251f3c;
+    --neutral-soft: #212a25;
+    --pitch: #1d6641;
+    --pitch-dark: #185636;
+    --pitch-line: #5aa57e;
+    --shirt: #e8efe9;
+    --shirt-num: #0e1411;
+    --cover: #0f3322;
+    --focus: #8ab8f5;
+    --shadow: rgba(0, 0, 0, 0.35);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1411;
+  --surface: #161d19;
+  --surface-2: #1b2420;
+  --ink: #e8efe9;
+  --muted: #98a79e;
+  --line: #27322c;
+  --accent: #44c486;
+  --accent-ink: #0b1410;
+  --accent-soft: #143024;
+  --warn: #f2c36b;
+  --warn-soft: #33290f;
+  --warn-strong: #e0a030;
+  --report: #bda8ff;
+  --report-soft: #251f3c;
+  --neutral-soft: #212a25;
+  --pitch: #1d6641;
+  --pitch-dark: #185636;
+  --pitch-line: #5aa57e;
+  --shirt: #e8efe9;
+  --shirt-num: #0e1411;
+  --cover: #0f3322;
+  --focus: #8ab8f5;
+  --shadow: rgba(0, 0, 0, 0.35);
+  color-scheme: dark;
+}
+
+[hidden] { display: none !important; }
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.5 var(--body);
+}
+.app {
+  max-width: 960px;
+  margin: 0 auto;
+  padding-inline: 16px;
+  padding-block: 16px 48px;
+}
+
+/* App bar */
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+.mark {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font: 700 19px/1 var(--display);
+  letter-spacing: 0.02em;
+}
+.wordmark {
+  font: 700 21px/1.1 var(--display);
+  letter-spacing: 0.01em;
+}
+.role {
+  font-size: 13px;
+  color: var(--muted);
+}
+.bar-right {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+.chip::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* Game header */
+.game { margin: 18px 0 14px; }
+h1 {
+  margin: 0;
+  font: 700 clamp(28px, 6vw, 38px)/1.05 var(--display);
+  letter-spacing: 0.005em;
+  text-wrap: balance;
+}
+h2 {
+  margin: 26px 0 10px;
+  font: 700 22px/1.15 var(--display);
+  letter-spacing: 0.01em;
+}
+h3 {
+  margin: 16px 0 8px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.sub {
+  margin: 4px 0 0;
+  color: var(--muted);
+}
+.lead .sub { max-width: 62ch; }
+.lead h2 { margin-top: 4px; }
+
+/* Step bar */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 6px;
+  margin: 0 0 20px;
+  padding: 5px;
+  background: var(--neutral-soft);
+  border-radius: 14px;
+}
+.step {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-width: 0;
+  padding: 9px 6px;
+  font: 600 14px/1.2 var(--body);
+  color: var(--muted);
+  background: transparent;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.step:hover { color: var(--ink); }
+.step[aria-current="step"] {
+  color: var(--ink);
+  background: var(--surface);
+  box-shadow: 0 1px 3px var(--shadow);
+}
+.step-n {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--surface);
+  background: var(--muted);
+}
+.step[aria-current="step"] .step-n { background: var(--accent); color: var(--accent-ink); }
+.count {
+  padding: 1px 7px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  background: var(--warn-soft);
+  color: var(--warn);
+}
+.count.zero {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+@media (max-width: 640px) {
+  .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* Cards and status */
+.card {
+  padding: 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 16px;
+}
+@media (max-width: 640px) {
+  .summary { grid-template-columns: minmax(0, 1fr); }
+}
+.big {
+  font: 700 30px/1.05 var(--display);
+  font-variant-numeric: tabular-nums;
+}
+.big small {
+  font: 500 15px/1.3 var(--body);
+  color: var(--muted);
+}
+.split {
+  display: flex;
+  height: 12px;
+  margin: 12px 0 8px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: var(--neutral-soft);
+}
+.split span { display: block; height: 100%; }
+.seg-auto { background: var(--accent); }
+.seg-done { background: var(--pitch-line); }
+.seg-wait { background: var(--warn-strong); }
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.legend i {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin-right: 5px;
+  border-radius: 3px;
+}
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 14px;
+}
+.status.hold { background: var(--warn-soft); color: var(--warn); }
+.status.clear { background: var(--accent-soft); color: var(--accent); }
+.banner {
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 12px;
+}
+.banner + .banner { margin-top: 8px; }
+.banner.hold { background: var(--warn-soft); color: var(--warn); }
+.banner.clear { background: var(--accent-soft); color: var(--accent); }
+
+/* Clip rows */
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+.item {
+  display: grid;
+  grid-template-columns: 132px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 16px;
+  padding: 12px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.item-body { min-width: 0; }
+.item-title {
+  font: 700 19px/1.2 var(--display);
+  letter-spacing: 0.01em;
+}
+.item-why {
+  margin: 6px 0 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+.frame { width: 132px; }
+.frame.big {
+  width: 100%;
+  max-width: 460px;
+}
+.frame svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+.pitch { fill: var(--pitch); }
+.stripe { fill: var(--pitch-dark); }
+.pline {
+  stroke: var(--pitch-line);
+  stroke-width: 1.5;
+  opacity: 0.55;
+}
+.shirt { fill: var(--shirt); }
+.num {
+  fill: var(--shirt-num);
+  font: 700 32px var(--display);
+}
+.cover {
+  fill: var(--cover);
+  opacity: 0.93;
+}
+.badge-bg {
+  fill: var(--cover);
+  opacity: 0.88;
+}
+.badge-t {
+  fill: var(--shirt);
+  font: 600 9px var(--body);
+}
+.play-c {
+  fill: var(--shirt);
+  opacity: 0.92;
+}
+.play-t { fill: var(--cover); }
+@media (max-width: 560px) {
+  .item { grid-template-columns: 100px minmax(0, 1fr); }
+  .item > .btn,
+  .item > .ghost { grid-column: 1 / -1; }
+  .item .frame { width: 100px; }
+}
+
+/* Confidence meter */
+.meter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+.meter-track {
+  position: relative;
+  flex: 1 1 auto;
+  max-width: 220px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--neutral-soft);
+}
+.meter-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--accent);
+}
+.meter-fill.low { background: var(--warn-strong); }
+.meter-tick {
+  position: absolute;
+  top: -3px;
+  width: 2px;
+  height: 14px;
+  background: var(--ink);
+}
+.meter-val {
+  flex: none;
+  font-size: 13px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+}
+
+/* Buttons and fields */
+.btn {
+  padding: 10px 18px;
+  font: 700 15px/1.2 var(--body);
+  color: var(--accent-ink);
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 10px;
+  cursor: pointer;
+}
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.btn.wide {
+  width: 100%;
+  margin-top: 14px;
+  padding-block: 13px;
+}
+.ghost {
+  padding: 10px 14px;
+  font: 600 15px/1.2 var(--body);
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  cursor: pointer;
+}
+.ghost:hover { border-color: var(--muted); }
+.btn.small,
+.ghost.small {
+  padding: 6px 11px;
+  font-size: 14px;
+}
+.link {
+  padding: 0;
+  font: 600 14px/1.2 var(--body);
+  color: var(--accent);
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+button:focus-visible,
+select:focus-visible,
+summary:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+select {
+  max-width: 100%;
+  padding: 9px 10px;
+  font: inherit;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+.field {
+  display: block;
+  margin: 4px 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+.field-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 12px 0 0;
+}
+.note {
+  margin: 10px 0 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* Review screen */
+.crumb {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 12px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.review {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 18px;
+}
+@media (min-width: 780px) {
+  .review {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: start;
+  }
+}
+.review-clip { min-width: 0; }
+.panel { min-width: 0; }
+.panel h2 { margin-top: 0; }
+.cands {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+.cands.one { grid-template-columns: minmax(0, 1fr); }
+.cand {
+  display: grid;
+  justify-items: start;
+  gap: 4px;
+  min-width: 0;
+  padding: 12px;
+  font: inherit;
+  text-align: left;
+  color: var(--ink);
+  background: var(--surface-2);
+  border: 2px solid var(--line);
+  border-radius: 12px;
+  cursor: pointer;
+}
+.cand:hover,
+.opt:hover { border-color: var(--muted); }
+.cand.on,
+.opt.on {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.tile {
+  display: grid;
+  place-items: center;
+  min-width: 52px;
+  height: 52px;
+  padding: 0 8px;
+  border-radius: 10px;
+  background: var(--pitch);
+  color: var(--shirt);
+  font: 700 30px/1 var(--display);
+}
+.cand-name { font-weight: 700; }
+.cand-hint,
+.opt-hint {
+  font-size: 13px;
+  color: var(--muted);
+}
+.options {
+  display: grid;
+  gap: 8px;
+  margin-top: 8px;
+}
+.opt {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 11px 12px;
+  font: inherit;
+  text-align: left;
+  color: var(--ink);
+  background: var(--surface-2);
+  border: 2px solid var(--line);
+  border-radius: 12px;
+  cursor: pointer;
+}
+.opt-main { font-weight: 600; }
+
+/* Recap and log */
+.tag {
+  display: inline-block;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.tag.good { background: var(--accent-soft); color: var(--accent); }
+.tag.amber { background: var(--warn-soft); color: var(--warn); }
+.tag.purple { background: var(--report-soft); color: var(--report); }
+.tag.gray { background: var(--neutral-soft); color: var(--muted); }
+.plain {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+.plain li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6px 10px;
+}
+.kids {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 10px;
+}
+@media (min-width: 640px) {
+  .kids { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.kid {
+  min-width: 0;
+  padding: 12px 14px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.kid-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+.kid-num {
+  display: grid;
+  place-items: center;
+  min-width: 30px;
+  height: 30px;
+  padding: 0 6px;
+  border-radius: 8px;
+  background: var(--pitch);
+  color: var(--shirt);
+  font: 700 17px/1 var(--display);
+}
+.more {
+  margin-top: 16px;
+  padding: 12px 14px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.more summary {
+  font-weight: 600;
+  cursor: pointer;
+}
+.more .plain { margin-top: 10px; }
+.table-wrap {
+  overflow-x: auto;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+table {
+  width: 100%;
+  min-width: 540px;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+th,
+td {
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+}
+th {
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+tr:last-child td { border-bottom: 0; }
+td.n { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.confirm {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+/* Model screen */
+.flow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 10px;
+  margin-top: 16px;
+}
+@media (min-width: 720px) {
+  .flow { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+.flow-step {
+  min-width: 0;
+  padding: 14px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.flow-step .k {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.flow-step .v {
+  margin-top: 4px;
+  font: 700 30px/1.05 var(--display);
+  font-variant-numeric: tabular-nums;
+}
+.flow-step .v.text { font-size: 22px; }
+.flow-step .d {
+  margin-top: 4px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.ex {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 10px;
+}
+.ex-nums {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font: 700 18px/1 var(--display);
+  font-variant-numeric: tabular-nums;
+}
+.ex-nums b {
+  display: grid;
+  place-items: center;
+  min-width: 30px;
+  height: 28px;
+  padding: 0 6px;
+  border-radius: 7px;
+  background: var(--neutral-soft);
+  color: var(--ink);
+}
+.ex-nums b.truth {
+  background: var(--pitch);
+  color: var(--shirt);
+}
+.eval {
+  display: grid;
+  gap: 14px;
+  margin-top: 6px;
+}
+.eval-row {
+  display: grid;
+  grid-template-columns: 170px minmax(0, 1fr) 150px;
+  align-items: center;
+  gap: 12px;
+}
+@media (max-width: 640px) {
+  .eval-row { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+}
+.eval-name { font-weight: 600; }
+.eval-track {
+  position: relative;
+  height: 16px;
+  border-radius: 6px;
+  background: var(--neutral-soft);
+}
+.eval-fill {
+  height: 100%;
+  border-radius: 6px;
+  background: var(--warn-strong);
+}
+.eval-fill.pass { background: var(--accent); }
+.eval-line {
+  position: absolute;
+  top: -5px;
+  width: 2px;
+  height: 26px;
+  background: var(--ink);
+}
+.eval-val {
+  font-size: 14px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.eval-key {
+  margin: 12px 0 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+.guard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+.guard:last-child { border-bottom: 0; padding-bottom: 0; }
+.guard:first-child { padding-top: 0; }
+.guard div { min-width: 0; flex: 1 1 280px; }
+.guard strong { display: block; }
+.guard span.d { font-size: 14px; color: var(--muted); }
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  transform: translateX(-50%);
+  max-width: calc(100% - 32px);
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--bg);
+  background: var(--ink);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px var(--shadow);
+}
+.foot {
+  margin-top: 36px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+  color: var(--muted);
+}
+</style>
+</head>
+<body>
+
+<div class="app">
+  <header class="bar">
+    <div class="brand">
+      <span class="mark" aria-hidden="true">SR</span>
+      <div>
+        <div class="wordmark">SidelineReel</div>
+        <div class="role">Coach review · prototype</div>
       </div>
-      <a class="home-link" href="#/"
-        >All exams <span aria-hidden="true">↗</span></a
-      >
-    </header>
-    <main id="main" tabindex="-1"></main>
-    <div id="announcer" class="sr-only" role="status" aria-live="polite"></div>
-    <dialog id="confirm-dialog" aria-labelledby="confirm-title">
-      <h2 id="confirm-title">Submit this exam?</h2>
-      <p id="confirm-copy"></p>
-      <div class="actions">
-        <button id="cancel-submit" class="secondary">Keep working</button
-        ><button id="confirm-submit">Submit exam</button>
-      </div>
-    </dialog>
-    <noscript
-      >Enable JavaScript to use the mock exams. This app stores progress locally
-      in your browser.</noscript
-    >
-    <footer>
-      Independent AIP-C01 practice. Not affiliated with or endorsed by AWS.
-      Original practice scenarios; no real exam questions.<br />Practice
-      accuracy is not an AWS scaled score or a guarantee of passing. Progress
-      stays in this browser.
-      <a
-        href="https://docs.aws.amazon.com/aws-certification/latest/ai-professional-01/ai-professional-01.html"
-        target="_blank"
-        rel="noopener"
-        >Official exam guide ↗</a
-      >
-    </footer>
-  </body>
+    </div>
+    <div class="bar-right">
+      <span class="chip" id="model-chip">Matching model v1.2</span>
+      <button type="button" class="ghost small" id="reset">Reset demo</button>
+    </div>
+  </header>
+
+  <section class="game">
+    <h1>Ridgeline U12 vs Brightwater</h1>
+    <p class="sub">Saturday game · 8 highlights found · sample data</p>
+  </section>
+
+  <nav class="steps" aria-label="Prototype screens">
+    <button type="button" class="step" data-view="queue"><span class="step-n">1</span><span>Queue</span><span class="count" id="count-queue">4</span></button>
+    <button type="button" class="step" data-view="review"><span class="step-n">2</span><span>Review</span></button>
+    <button type="button" class="step" data-view="recap"><span class="step-n">3</span><span>Recap</span></button>
+    <button type="button" class="step" data-view="parent"><span>Parent view</span></button>
+    <button type="button" class="step" data-view="model"><span>Model</span></button>
+  </nav>
+
+  <main id="view"></main>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <p class="foot">Prototype for a product assessment. The team, names, numbers, clips and model scores are made up, and no real footage is used.</p>
+</div>
+
+<script>
+(function () {
+  var THRESHOLD = 85;
+  var FAMILIES = 16;
+  var TEST_SET = 200;
+  var RELEASE_BAR = 2;
+  var SCALE_MAX = 8;
+  var QUEUE_ALERT = 10;
+  var MODEL_NOW = { v: '1.2', wrong: 12 };
+  var MODEL_NEXT = { v: '1.3', wrong: 3 };
+
+  var roster = [
+    { num: 1, name: 'Ava R.' },
+    { num: 4, name: 'Maya O.' },
+    { num: 7, name: 'Zoe K.' },
+    { num: 8, name: 'Lena P.' },
+    { num: 9, name: 'Nora B.' },
+    { num: 11, name: 'Priya S.' },
+    { num: 14, name: 'Imani D.' },
+    { num: 17, name: 'Sofia G.' },
+    { num: 23, name: 'Ella W.' },
+    { num: 30, name: 'Ruby H.' }
+  ];
+
+  function seedClips() {
+    return [
+      { id: 1, play: 'Goal', minute: 12, read: 23, conf: 97, candidates: [23], status: 'auto', player: 23, reason: null },
+      { id: 2, play: 'Free kick', minute: 18, read: 30, conf: 96, candidates: [30], status: 'auto', player: 30, reason: null },
+      { id: 3, play: 'Goal', minute: 23, read: 4, conf: 58, candidates: [4, 14], status: 'flagged', player: null, reason: 'lookalike' },
+      { id: 4, play: 'Assist', minute: 31, read: 11, conf: 61, candidates: [11, 1], status: 'flagged', player: null, reason: 'lookalike' },
+      { id: 5, play: 'Tackle', minute: 40, read: 9, conf: 95, candidates: [9], status: 'auto', player: 9, reason: null },
+      { id: 6, play: 'Goal', minute: 52, read: 17, conf: 54, candidates: [17, 7], status: 'flagged', player: null, reason: 'lookalike' },
+      { id: 7, play: 'Header', minute: 58, read: 8, conf: 98, candidates: [8], status: 'auto', player: 8, reason: null },
+      { id: 8, play: 'Save', minute: 66, read: 1, conf: 63, candidates: [1, 11], status: 'flagged', player: null, reason: 'lookalike' }
+    ];
+  }
+
+  var state;
+  function reset() {
+    state = {
+      view: 'queue',
+      clips: seedClips(),
+      current: null,
+      choice: null,
+      log: [],
+      sent: false,
+      parentKid: 23,
+      confirmReport: null,
+      model: 'current'
+    };
+  }
+
+  var viewEl = document.getElementById('view');
+  var toastEl = document.getElementById('toast');
+  var countEl = document.getElementById('count-queue');
+  var chipEl = document.getElementById('model-chip');
+  var toastTimer = null;
+
+  function esc(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+  function player(num) {
+    for (var i = 0; i < roster.length; i++) {
+      if (roster[i].num === num) return roster[i];
+    }
+    return null;
+  }
+  function label(num) {
+    var p = player(num);
+    return p ? '#' + p.num + ' ' + p.name : 'Unknown player';
+  }
+  function getClip(id) {
+    for (var i = 0; i < state.clips.length; i++) {
+      if (state.clips[i].id === id) return state.clips[i];
+    }
+    return null;
+  }
+  function pending() {
+    return state.clips.filter(function (c) { return c.status === 'flagged'; });
+  }
+  function published(c) {
+    return c.status === 'auto' || c.status === 'approved' || c.status === 'corrected';
+  }
+  function labels() {
+    return state.log.filter(function (r) { return r.kind === 'approved' || r.kind === 'corrected'; });
+  }
+  function clipTitle(c) {
+    return c.play + ' · minute ' + c.minute;
+  }
+  function n(count, one, many) {
+    return count + ' ' + (count === 1 ? one : many);
+  }
+  function pct(wrong) {
+    return (wrong / TEST_SET * 100).toFixed(1) + '%';
+  }
+  function toast(msg) {
+    toastEl.textContent = msg;
+    toastEl.hidden = false;
+    if (toastTimer) clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toastEl.hidden = true; }, 3200);
+  }
+
+  function reasonText(c) {
+    if (c.reason === 'reported') return 'A parent reported this clip as the wrong kid.';
+    if (c.candidates.length > 1) {
+      return '#' + c.candidates[0] + ' and #' + c.candidates[1] + ' are both on your roster and look alike.';
+    }
+    return 'The number was hard to read.';
+  }
+  function decisionText(r) {
+    if (r.kind === 'approved') return 'Approved ' + label(r.truth);
+    if (r.kind === 'corrected') return 'Corrected to ' + label(r.truth);
+    if (r.kind === 'excluded') return 'Left out. Could not tell who it was.';
+    return 'Reported as the wrong kid. Removed from the reel of ' + label(r.from) + '.';
+  }
+
+  function badge(c) {
+    if (c.status === 'auto') return '<span class="tag gray">Auto-matched · ' + c.conf + '%</span>';
+    if (c.status === 'approved') return '<span class="tag good">Approved by coach</span>';
+    if (c.status === 'corrected') return '<span class="tag amber">Corrected #' + c.read + ' → #' + c.player + '</span>';
+    if (c.status === 'excluded') return '<span class="tag gray">Left out by coach</span>';
+    if (c.reason === 'reported') return '<span class="tag purple">Reported by parent</span>';
+    return '<span class="tag amber">Waiting for review</span>';
+  }
+
+  function meter(conf) {
+    var low = conf < THRESHOLD;
+    return '<div class="meter" role="img" aria-label="' + conf + ' percent sure. Auto-match needs ' + THRESHOLD + ' percent.">' +
+      '<div class="meter-track"><div class="meter-fill' + (low ? ' low' : '') + '" style="width:' + conf + '%"></div>' +
+      '<div class="meter-tick" style="left:' + THRESHOLD + '%"></div></div>' +
+      '<span class="meter-val">' + conf + '% sure</span></div>';
+  }
+
+  function frame(c, big) {
+    var unsure = c.status === 'flagged';
+    return '<div class="frame' + (big ? ' big' : '') + '" role="img" aria-label="Clip placeholder. The jersey number reads ' + c.read + (unsure ? ', partly hidden' : '') + '.">' +
+      '<svg viewBox="0 0 160 100" aria-hidden="true" focusable="false">' +
+      '<rect class="pitch" x="0" y="0" width="160" height="100"/>' +
+      '<rect class="stripe" x="32" y="0" width="32" height="100"/>' +
+      '<rect class="stripe" x="96" y="0" width="32" height="100"/>' +
+      '<path class="pline" fill="none" d="M80 0V100"/>' +
+      '<circle class="pline" fill="none" cx="80" cy="50" r="20"/>' +
+      '<path class="shirt" d="M58 22L70 16Q80 25 90 16L102 22L116 38L105 46L100 40V86H60V40L55 46L44 38Z"/>' +
+      '<text class="num" x="80" y="71" text-anchor="middle">' + c.read + '</text>' +
+      (unsure ? '<rect class="cover" x="56" y="46" width="18" height="30" rx="3"/>' : '') +
+      '<circle class="play-c" cx="16" cy="16" r="9"/>' +
+      '<path class="play-t" d="M13 11.5L21 16L13 20.5Z"/>' +
+      '<rect class="badge-bg" x="114" y="80" width="40" height="15" rx="4"/>' +
+      '<text class="badge-t" x="134" y="91" text-anchor="middle">min ' + c.minute + '</text>' +
+      '</svg></div>';
+  }
+
+  function viewQueue() {
+    var p = pending();
+    var total = state.clips.length;
+    var autos = state.clips.filter(function (c) { return c.status === 'auto'; });
+    var done = total - autos.length - p.length;
+
+    var h = '<div class="card summary"><div>' +
+      '<div class="big">' + (p.length ? p.length + ' of ' + total + ' <small>clips need your review</small>' : 'All ' + total + ' <small>clips are settled</small>') + '</div>' +
+      '<div class="split" role="img" aria-label="' + autos.length + ' auto-matched, ' + done + ' decided by you, ' + p.length + ' waiting.">' +
+      '<span class="seg-auto" style="width:' + (autos.length / total * 100) + '%"></span>' +
+      '<span class="seg-done" style="width:' + (done / total * 100) + '%"></span>' +
+      '<span class="seg-wait" style="width:' + (p.length / total * 100) + '%"></span></div>' +
+      '<div class="legend">' +
+      '<span><i class="seg-auto"></i>' + autos.length + ' auto-matched</span>' +
+      '<span><i class="seg-done"></i>' + done + ' decided by you</span>' +
+      '<span><i class="seg-wait"></i>' + p.length + ' waiting</span>' +
+      '<span>Auto-match needs ' + THRESHOLD + '% and no look-alike number</span></div></div>' +
+      (p.length ? '<span class="status hold">Recap on hold</span>' : '<span class="status clear">Recap ready</span>') +
+      '</div>';
+
+    if (p.length) {
+      h += '<h2>Needs your review</h2><ul class="list">';
+      p.forEach(function (c) {
+        h += '<li class="item">' + frame(c, false) +
+          '<div class="item-body">' +
+          '<div class="item-title">' + esc(clipTitle(c)) + ' · system read #' + c.read + '</div>' +
+          meter(c.conf) +
+          '<div class="item-why">' + esc(reasonText(c)) + '</div>' +
+          '</div>' +
+          '<button type="button" class="btn" data-action="open" data-id="' + c.id + '">Review</button>' +
+          '</li>';
+      });
+      h += '</ul><p class="note">These clips stay out of every reel and the weekly recap until you check them.</p>';
+    } else {
+      h += '<p class="actions"><button type="button" class="btn" data-action="goto" data-view="recap">Go to recap</button>' +
+        '<button type="button" class="ghost" data-action="goto" data-view="model">See what the model learned</button></p>';
+    }
+
+    h += '<details class="more"><summary>Auto-matched clips (' + autos.length + ')</summary><ul class="plain">';
+    autos.forEach(function (c) {
+      h += '<li><span>' + esc(clipTitle(c)) + ' → ' + esc(label(c.player)) + '</span><span class="tag gray">' + c.conf + '%</span></li>';
+    });
+    h += '</ul><p class="note">These numbers have no look-alike on the roster and scored above ' + THRESHOLD + '%.</p></details>';
+    return h;
+  }
+
+  function viewReview() {
+    var c = getClip(state.current);
+    if (!c || c.status !== 'flagged') {
+      c = pending()[0] || null;
+      state.current = c ? c.id : null;
+      state.choice = null;
+    }
+    if (!c) {
+      return '<p class="banner clear"><strong>Nothing left to review.</strong> Every clip is a confident match or has your approval.</p>' +
+        '<p class="actions"><button type="button" class="btn" data-action="goto" data-view="recap">Go to recap</button></p>';
+    }
+
+    var left = pending().length;
+    var ch = state.choice;
+    var h = '<p class="crumb"><button type="button" class="link" data-action="goto" data-view="queue">← Back to queue</button>' +
+      '<span>' + left + ' left to review</span></p>';
+
+    h += '<div class="review"><div class="review-clip">' + frame(c, true) +
+      '<p class="note">Clip placeholder. In the product this is the real highlight, paused on the clearest frame.</p></div>';
+
+    h += '<div class="panel card"><h2>' + esc(clipTitle(c)) + '</h2>' +
+      '<div>System read <strong>#' + c.read + '</strong></div>' + meter(c.conf) +
+      '<p class="item-why">' + esc(reasonText(c)) + '</p>' +
+      '<h3>Who is this?</h3><div class="cands' + (c.candidates.length === 1 ? ' one' : '') + '">';
+
+    c.candidates.forEach(function (num, i) {
+      var on = !!ch && ch.type === 'player' && ch.num === num;
+      var hint = i === 0 ? (c.reason === 'reported' ? 'Reported as wrong' : 'System guess') : 'Look-alike on roster';
+      var pl = player(num);
+      h += '<button type="button" class="cand' + (on ? ' on' : '') + '" aria-pressed="' + (on ? 'true' : 'false') +
+        '" data-action="choose" data-choice="player" data-num="' + num + '">' +
+        '<span class="tile">' + num + '</span>' +
+        '<span class="cand-name">' + esc(pl ? pl.name : 'Unknown') + '</span>' +
+        '<span class="cand-hint">' + hint + '</span></button>';
+    });
+    h += '</div><div class="options">';
+
+    var otherOn = !!ch && ch.type === 'other';
+    h += '<button type="button" class="opt' + (otherOn ? ' on' : '') + '" aria-pressed="' + (otherOn ? 'true' : 'false') +
+      '" data-action="choose" data-choice="other"><span class="opt-main">Someone else on the roster</span></button>';
+    if (otherOn) {
+      h += '<div><label class="field" for="other-player">Pick the player</label><select id="other-player"><option value="">Choose a player</option>';
+      roster.forEach(function (pl) {
+        if (c.candidates.indexOf(pl.num) !== -1) return;
+        h += '<option value="' + pl.num + '"' + (ch.num === pl.num ? ' selected' : '') + '>' + esc(label(pl.num)) + '</option>';
+      });
+      h += '</select></div>';
+    }
+
+    var exOn = !!ch && ch.type === 'exclude';
+    h += '<button type="button" class="opt' + (exOn ? ' on' : '') + '" aria-pressed="' + (exOn ? 'true' : 'false') +
+      '" data-action="choose" data-choice="exclude"><span class="opt-main">Can’t tell</span><span class="opt-hint">Leave it out of reels and the recap</span></button>';
+    h += '</div>';
+
+    var hasNum = !!ch && ch.num !== null && ch.num !== undefined;
+    var ready = !!ch && (ch.type === 'exclude' || hasNum);
+    var text = 'Pick an answer to continue';
+    if (ch && ch.type === 'exclude') text = 'Leave this clip out';
+    else if (ch && hasNum) text = 'Confirm ' + label(ch.num);
+    else if (ch && ch.type === 'other') text = 'Pick a player to continue';
+
+    h += '<button type="button" class="btn wide" data-action="confirm"' + (ready ? '' : ' disabled') + '>' + esc(text) + '</button>' +
+      '<p class="note">Your answer is logged and becomes a labeled example for the matching model.</p></div></div>';
+    return h;
+  }
+
+  function viewRecap() {
+    var p = pending();
+    var pub = state.clips.filter(published);
+    var h = '';
+
+    if (state.sent) {
+      h += '<p class="banner clear"><strong>Recap sent to ' + FAMILIES + ' families.</strong> Every clip in it was a confident match or coach-approved.</p>';
+      if (p.length) {
+        h += '<p class="banner hold">' + n(p.length, 'clip was', 'clips were') + ' reported after sending and ' +
+          (p.length === 1 ? 'is' : 'are') + ' back in your queue.</p>' +
+          '<p class="actions"><button type="button" class="btn" data-action="goto" data-view="review">Review now</button></p>';
+      }
+    } else if (p.length) {
+      h += '<p class="banner hold"><strong>Recap on hold.</strong> ' + n(p.length, 'clip is', 'clips are') +
+        ' still waiting for review, so the recap cannot go out yet.</p>' +
+        '<p class="actions"><button type="button" class="btn" data-action="goto" data-view="review">Review now</button>' +
+        '<button type="button" class="btn" disabled>Send recap to ' + FAMILIES + ' families</button></p>';
+    } else {
+      h += '<p class="banner clear"><strong>Ready to send.</strong> All ' + pub.length + ' clips are confident matches or coach-approved.</p>' +
+        '<p class="actions"><button type="button" class="btn" data-action="send">Send recap to ' + FAMILIES + ' families</button></p>';
+    }
+
+    h += '<h2>In the recap</h2>';
+    if (pub.length) {
+      h += '<div class="kids">';
+      roster.forEach(function (pl) {
+        var mine = pub.filter(function (c) { return c.player === pl.num; });
+        if (!mine.length) return;
+        h += '<div class="kid"><div class="kid-name"><span class="kid-num">' + pl.num + '</span>' + esc(pl.name) + '</div><ul class="plain">';
+        mine.forEach(function (c) {
+          h += '<li><span>' + esc(clipTitle(c)) + '</span>' + badge(c) + '</li>';
+        });
+        h += '</ul></div>';
+      });
+      h += '</div>';
+    } else {
+      h += '<p class="note">No clips yet.</p>';
+    }
+
+    var held = state.clips.filter(function (c) { return !published(c); });
+    h += '<h2>Held back</h2>';
+    if (held.length) {
+      h += '<div class="kid"><ul class="plain">';
+      held.forEach(function (c) {
+        h += '<li><span>' + esc(clipTitle(c)) + ' · system read #' + c.read + '</span>' + badge(c) + '</li>';
+      });
+      h += '</ul></div>';
+    } else {
+      h += '<p class="note">Nothing is held back.</p>';
+    }
+
+    h += '<h2>Decision log</h2>';
+    if (state.log.length) {
+      h += '<div class="table-wrap"><table><thead><tr><th>Clip</th><th>System read</th><th>Decision</th><th>By</th></tr></thead><tbody>';
+      state.log.forEach(function (r) {
+        h += '<tr><td>' + esc(r.clip) + '</td><td class="n">#' + r.read + ' · ' + r.conf + '%</td><td>' + esc(decisionText(r)) + '</td><td>' + esc(r.by) + '</td></tr>';
+      });
+      h += '</tbody></table></div>' +
+        '<p class="actions"><button type="button" class="ghost" data-action="goto" data-view="model">See what the model learned</button></p>';
+    } else {
+      h += '<p class="note">No decisions logged yet. Review a clip and it shows up here.</p>';
+    }
+    return h;
+  }
+
+  function viewParent() {
+    var kid = player(state.parentKid) || roster[0];
+    var first = kid.name.split(' ')[0];
+    var mine = state.clips.filter(function (c) { return published(c) && c.player === kid.num; });
+
+    var h = '<div class="field-row"><label class="field" for="kid">Viewing as the parent of</label><select id="kid">';
+    roster.forEach(function (pl) {
+      h += '<option value="' + pl.num + '"' + (pl.num === kid.num ? ' selected' : '') + '>' + esc(label(pl.num)) + '</option>';
+    });
+    h += '</select></div>';
+
+    h += '<h2>' + esc(first) + '’s reel</h2>';
+    if (mine.length) {
+      h += '<ul class="list">';
+      mine.forEach(function (c) {
+        var asking = state.confirmReport === c.id;
+        h += '<li class="item">' + frame(c, false) +
+          '<div class="item-body"><div class="item-title">' + esc(clipTitle(c)) + '</div>' +
+          '<div class="item-why">' + badge(c) + '</div>';
+        if (asking) {
+          h += '<div class="confirm"><span>Report this clip as the wrong kid?</span>' +
+            '<button type="button" class="btn small" data-action="report-yes" data-id="' + c.id + '">Yes, report it</button>' +
+            '<button type="button" class="ghost small" data-action="report-no">Cancel</button></div>';
+        }
+        h += '</div>';
+        if (!asking) {
+          h += '<button type="button" class="ghost" data-action="report" data-id="' + c.id + '">Not my kid</button>';
+        }
+        h += '</li>';
+      });
+      h += '</ul>';
+    } else {
+      h += '<p class="note">No clips in this reel right now.</p>';
+    }
+
+    var p = pending().length;
+    if (p) {
+      h += '<p class="note">' + n(p, 'clip from this game is', 'clips from this game are') +
+        ' waiting for the coach and not shown to any family yet.</p>';
+    }
+    h += '<p class="note">A reported clip is removed from the reel straight away, sent to the coach’s queue and logged.</p>';
+    return h;
+  }
+
+  function evalRow(name, wrong, pass) {
+    var p = wrong / TEST_SET * 100;
+    return '<div class="eval-row"><div class="eval-name">' + name + '</div>' +
+      '<div class="eval-track" role="img" aria-label="' + wrong + ' wrong of ' + TEST_SET + ', ' + pct(wrong) + '. Release bar is under ' + RELEASE_BAR + ' percent.">' +
+      '<div class="eval-fill' + (pass ? ' pass' : '') + '" style="width:' + (p / SCALE_MAX * 100) + '%"></div>' +
+      '<div class="eval-line" style="left:' + (RELEASE_BAR / SCALE_MAX * 100) + '%"></div></div>' +
+      '<div class="eval-val">' + wrong + ' wrong · ' + pct(wrong) + '</div></div>';
+  }
+
+  function viewModel() {
+    var ex = labels();
+    var answers = state.log.filter(function (r) { return r.by === 'Coach'; }).length;
+    var skipped = state.log.filter(function (r) { return r.kind === 'excluded'; }).length;
+    var reports = state.log.filter(function (r) { return r.kind === 'reported'; }).length;
+    var waiting = pending().length;
+    var stage = state.model;
+
+    var h = '<div class="lead"><h2>How coach answers improve the matching</h2>' +
+      '<p class="sub">Every answer in the review queue is logged. Confirmed answers become labeled examples, the model is retrained on them, and the new version only ships if it beats the release bar.</p></div>';
+
+    h += '<div class="flow">' +
+      '<div class="flow-step"><div class="k">1 · Coach answers</div><div class="v">' + answers + '</div><div class="d">answers logged from this game</div></div>' +
+      '<div class="flow-step"><div class="k">2 · Labeled examples</div><div class="v">' + ex.length + '</div><div class="d">' +
+      (skipped ? n(skipped, 'clip was', 'clips were') + ' left out, so no label' : 'a confirmed player on a hard-to-read number') + '</div></div>' +
+      '<div class="flow-step"><div class="k">3 · Retrain and test</div><div class="v text">' +
+      (stage === 'current' ? 'Not retrained yet' : stage === 'trained' ? 'v' + MODEL_NEXT.v + ' tested' : 'v' + MODEL_NEXT.v + ' is live') +
+      '</div><div class="d">checked on ' + TEST_SET + ' look-alike clips before release</div></div></div>';
+
+    h += '<h2>New examples from this game</h2>';
+    if (ex.length) {
+      h += '<div class="card"><ul class="plain">';
+      ex.forEach(function (r) {
+        h += '<li><span class="ex"><span class="ex-nums"><b>' + r.read + '</b>→<b class="truth">' + r.truth + '</b></span>' +
+          '<span>' + esc(r.clip) + ' · ' + esc(label(r.truth)) + '</span></span>' +
+          (r.kind === 'corrected' ? '<span class="tag amber">Model was wrong</span>' : '<span class="tag good">Model was right</span>') + '</li>';
+      });
+      h += '</ul></div>';
+    } else {
+      h += '<p class="note">No examples yet. Each answer you give in the review queue becomes one.</p>' +
+        '<p class="actions"><button type="button" class="btn" data-action="goto" data-view="review">Review clips</button></p>';
+    }
+
+    h += '<h2>Test before release</h2><div class="card"><div class="eval">' +
+      evalRow('Current model v' + MODEL_NOW.v, MODEL_NOW.wrong, false) +
+      (stage === 'current' ? '' : evalRow('Retrained v' + MODEL_NEXT.v, MODEL_NEXT.wrong, true)) +
+      '</div><p class="eval-key">Wrong matches on a labeled test set of ' + TEST_SET + ' look-alike clips. The line marks the release bar: under ' + RELEASE_BAR + '%. Scale runs 0% to ' + SCALE_MAX + '%.</p>';
+
+    if (stage === 'current') {
+      h += '<p class="actions"><button type="button" class="btn" data-action="retrain"' + (ex.length ? '' : ' disabled') + '>Retrain with ' + n(ex.length, 'new example', 'new examples') + '</button>' +
+        (ex.length ? '' : '<span class="note" style="margin:0">Review clips first. Coach answers are the training data.</span>') + '</p>';
+    } else if (stage === 'trained') {
+      h += '<p class="banner clear" style="margin-top:12px"><strong>v' + MODEL_NEXT.v + ' passes.</strong> ' + pct(MODEL_NEXT.wrong) + ' wrong is under the ' + RELEASE_BAR + '% bar.</p>' +
+        '<p class="actions"><button type="button" class="btn" data-action="promote">Use v' + MODEL_NEXT.v + ' for the next game</button></p>';
+    } else {
+      h += '<p class="banner clear" style="margin-top:12px"><strong>v' + MODEL_NEXT.v + ' is live for the next game.</strong> Look-alike clips still come to your queue, but the system’s first guess is right more often, so most reviews are one tap.</p>';
+    }
+    h += '</div>';
+
+    h += '<h2>Checks after launch</h2><div class="card">' +
+      '<div class="guard"><div><strong>Review queue</strong><span class="d">' + waiting + ' waiting now. Alert if more than ' + QUEUE_ALERT + ' wait or a recap goes out late.</span></div>' +
+      (waiting > QUEUE_ALERT ? '<span class="tag amber">Alert</span>' : '<span class="tag good">OK</span>') + '</div>' +
+      '<div class="guard"><div><strong>Weekly audit</strong><span class="d">A person checks 50 random published clips. Parent reports from this game: ' + reports + '.</span></div>' +
+      (reports ? '<span class="tag purple">' + n(reports, 'report', 'reports') + ' to check</span>' : '<span class="tag good">OK</span>') + '</div></div>';
+
+    h += '<p class="note">Model scores on this screen are made up to show the flow.</p>';
+    return h;
+  }
+
+  function confirmChoice() {
+    var c = getClip(state.current);
+    var ch = state.choice;
+    if (!c || !ch) return;
+
+    if (ch.type === 'exclude') {
+      state.log.push({ clip: clipTitle(c), read: c.read, conf: c.conf, kind: 'excluded', truth: null, from: null, by: 'Coach' });
+      c.status = 'excluded';
+      c.player = null;
+      toast('Left out of reels and the recap.');
+    } else {
+      if (ch.num === null || ch.num === undefined) return;
+      var kind = ch.num === c.read ? 'approved' : 'corrected';
+      c.player = ch.num;
+      c.status = kind;
+      state.log.push({ clip: clipTitle(c), read: c.read, conf: c.conf, kind: kind, truth: ch.num, from: null, by: 'Coach' });
+      toast('Saved. Clip goes to ' + label(ch.num) + '.');
+    }
+
+    state.choice = null;
+    var next = pending()[0];
+    if (next) {
+      state.current = next.id;
+    } else {
+      state.current = null;
+      state.view = 'recap';
+    }
+  }
+
+  function reportClip(id) {
+    var c = getClip(id);
+    if (!c || !published(c)) return;
+    var from = c.player;
+    state.log.push({ clip: clipTitle(c), read: c.read, conf: c.conf, kind: 'reported', truth: null, from: from, by: 'Parent' });
+    c.status = 'flagged';
+    c.reason = 'reported';
+    c.candidates = [from];
+    c.player = null;
+    state.confirmReport = null;
+    toast('Clip removed and sent to the coach.');
+  }
+
+  function render() {
+    var steps = document.querySelectorAll('.step');
+    for (var i = 0; i < steps.length; i++) {
+      if (steps[i].getAttribute('data-view') === state.view) steps[i].setAttribute('aria-current', 'step');
+      else steps[i].removeAttribute('aria-current');
+    }
+    var html;
+    if (state.view === 'queue') html = viewQueue();
+    else if (state.view === 'review') html = viewReview();
+    else if (state.view === 'recap') html = viewRecap();
+    else if (state.view === 'parent') html = viewParent();
+    else html = viewModel();
+
+    var waiting = pending().length;
+    countEl.textContent = String(waiting);
+    countEl.className = waiting ? 'count' : 'count zero';
+    chipEl.textContent = 'Matching model v' + (state.model === 'promoted' ? MODEL_NEXT.v : MODEL_NOW.v);
+    viewEl.innerHTML = html;
+  }
+
+  viewEl.addEventListener('click', function (e) {
+    var t = e.target.closest('[data-action]');
+    if (!t || t.disabled) return;
+    var action = t.getAttribute('data-action');
+    var id = Number(t.getAttribute('data-id'));
+
+    if (action === 'open') {
+      state.current = id;
+      state.choice = null;
+      state.view = 'review';
+    } else if (action === 'goto') {
+      state.view = t.getAttribute('data-view');
+      state.choice = null;
+      state.confirmReport = null;
+    } else if (action === 'choose') {
+      var kind = t.getAttribute('data-choice');
+      if (kind === 'player') state.choice = { type: 'player', num: Number(t.getAttribute('data-num')) };
+      else if (kind === 'other') state.choice = { type: 'other', num: null };
+      else state.choice = { type: 'exclude' };
+    } else if (action === 'confirm') {
+      confirmChoice();
+    } else if (action === 'send') {
+      state.sent = true;
+      toast('Recap sent to ' + FAMILIES + ' families.');
+    } else if (action === 'report') {
+      state.confirmReport = id;
+    } else if (action === 'report-no') {
+      state.confirmReport = null;
+    } else if (action === 'report-yes') {
+      reportClip(id);
+    } else if (action === 'retrain') {
+      var count = labels().length;
+      if (count) {
+        state.model = 'trained';
+        toast('Retrained on ' + n(count, 'new example', 'new examples') + '. v' + MODEL_NEXT.v + ' scored ' + pct(MODEL_NEXT.wrong) + ' wrong.');
+      }
+    } else if (action === 'promote') {
+      state.model = 'promoted';
+      toast('Model v' + MODEL_NEXT.v + ' is live for the next game.');
+    }
+    render();
+  });
+
+  viewEl.addEventListener('change', function (e) {
+    var t = e.target;
+    if (t.id === 'other-player') {
+      state.choice = { type: 'other', num: t.value ? Number(t.value) : null };
+      render();
+    } else if (t.id === 'kid') {
+      state.parentKid = Number(t.value);
+      state.confirmReport = null;
+      render();
+    }
+  });
+
+  document.querySelector('.steps').addEventListener('click', function (e) {
+    var b = e.target.closest('.step');
+    if (!b) return;
+    state.view = b.getAttribute('data-view');
+    state.choice = null;
+    state.confirmReport = null;
+    render();
+  });
+
+  document.getElementById('reset').addEventListener('click', function () {
+    reset();
+    render();
+    toast('Demo reset.');
+  });
+
+  reset();
+  render();
+})();
+</script>
+</body>
 </html>

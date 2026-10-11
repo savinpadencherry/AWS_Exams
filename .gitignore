@@ -1,13 +1,1 @@
-labs/**/.env
-labs/**/.env.*
-labs/**/auth.token
-labs/**/auth.toml
-labs/**/volume/
-labs/**/__pycache__/
-*.vhdx
-*.wsl
-*.msi
-
-node_modules/
-playwright-report/
-test-results/
+.DS_Store
